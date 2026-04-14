@@ -1,0 +1,15 @@
+{
+  "name": "printbridge-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "whoami": "wrangler whoami"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260228.0",
+    "wrangler": "^4.67.0"
+  }
+}

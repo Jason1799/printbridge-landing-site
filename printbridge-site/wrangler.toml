@@ -1,0 +1,16 @@
+name = "printbridge-landing"
+main = "src/index.ts"
+compatibility_date = "2026-04-14"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
+
+[vars]
+PRINTBRIDGE_EXTENSION_ID = "EXTENSION_ID_PLACEHOLDER"
+PRINTBRIDGE_VERSION = "0.4.2"
+DOWNLOAD_DMG = "PrintBridge for Zebra Installer.dmg"
+DOWNLOAD_ZIP = "PrintBridge for Zebra Installer.zip"
+DOWNLOAD_DMG_URL = "/download/dmg"
+DOWNLOAD_ZIP_URL = "/download/zip"
