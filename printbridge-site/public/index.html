@@ -11,68 +11,122 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div class="layout">
-      <header class="hero">
-        <p class="eyebrow">PrintBridge for Zebra</p>
-        <h1>PrintBridge for Zebra</h1>
-        <p class="hero-subtitle">
-          Print shipping labels from Chrome with clear output on macOS
-        </p>
-        <p class="hero-subtitle">
-          在 macOS 上从 Chrome 打印 4×6 等规格标签，二维码与文字保持清晰
-        </p>
-        <p class="hero-meta">
-          Version <strong id="release-version">__APP_VERSION__</strong> · macOS + Chrome
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="__WEBSTORE_URL__" rel="noopener">
-            Install Extension
-          </a>
-          <a class="btn btn-secondary" href="/download">Download App Packages</a>
-          <a class="btn btn-ghost" href="/chrome-extension">Open Extension Guide</a>
+    <header class="top-nav">
+      <div class="container nav-inner">
+        <a class="brand" href="/">PrintBridge for Zebra</a>
+        <nav class="top-links" aria-label="Quick links">
+          <a href="/chrome-extension">Extension Guide</a>
+          <a href="/download">Download</a>
+          <a href="__WEBSTORE_URL__" rel="noopener">Chrome Web Store</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">macOS Label Printing Bridge</p>
+          <h1>PrintBridge for Zebra</h1>
+          <p class="hero-subtitle">
+            Print shipping labels from Chrome with clean text and sharp QR codes. Built for shipping teams
+            who need consistent results on Zebra ZP505.
+          </p>
+          <p class="hero-subtitle">
+            专为 macOS + Chrome 打印工作流设计，输出更清晰的 4×6 等标签内容，支持二维码、条码与小字显示。
+          </p>
+          <p class="hero-meta">
+            Version <strong id="release-version">__APP_VERSION__</strong> · macOS + Chrome
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="__WEBSTORE_URL__" rel="noopener">
+              Install Extension
+            </a>
+            <a class="btn btn-secondary" href="/download">Download App Package</a>
+            <a class="btn btn-ghost" href="/chrome-extension">Setup in 3 Steps</a>
+          </div>
         </div>
-      </header>
+        <div class="hero-card">
+          <h2>What this solves</h2>
+          <ul>
+            <li>Chrome PDF preview output is blurry for thermal labels</li>
+            <li>Printer queue needs macOS-native conversion and sizing</li>
+            <li>Local helper sends printer-ready data directly</li>
+          </ul>
+          <p>
+            解决 Chrome 打印模糊的问题，建立一条更短更稳定的本地打印链路。
+          </p>
+        </div>
+      </section>
+
+      <section class="hero-badges">
+        <div class="badge-item">
+          <strong>4×6</strong>
+          <span>Supported default size</span>
+        </div>
+        <div class="badge-item">
+          <strong>Fast</strong>
+          <span>Continuous label flow</span>
+        </div>
+        <div class="badge-item">
+          <strong>Clear</strong>
+          <span>QR + text retention</span>
+        </div>
+      </section>
 
       <section class="card">
         <h2>Why this exists / 为什么我们做这个</h2>
-        <p>
-          Chrome print for labels is often blurry on thermal media. Default print settings
-          in the browser are not tuned for Zebra label workflows.
-        </p>
-        <p>
-          Chrome 自带打印对热敏纸不友好，默认缩放/DPI 往往导致二维码和文字发虚。我们用本地打印桥接避免这一点。
-        </p>
+        <div class="copy-grid">
+          <p>
+            Chrome print for labels is often blurry on thermal media. Browser defaults are built for
+            ink/office pages and don’t match Zebra label DPI or page fitting behavior.
+          </p>
+          <p>
+            Chrome 自带打印对热敏纸不友好，默认缩放/DPI 往往导致二维码和文字发虚。我们改由本地助手处理输出，减少模糊。
+          </p>
+        </div>
       </section>
 
       <section class="card">
         <h2>How it works / 工作原理</h2>
-        <ol class="plain-list">
+        <ol class="step-list">
           <li>
-            Chrome extension receives the PDF content and selected page size from the browser.
+            <span>1</span>
+            <div>
+              <h3>Browser capture / 浏览器读取</h3>
+              <p>Extension picks PDF, page boundaries, and requested label size from Chrome.</p>
+            </div>
           </li>
-          <li>Local helper converts and generates printer-ready label data.</li>
-          <li>Data is sent to macOS CUPS queue for your configured Zebra printer.</li>
+          <li>
+            <span>2</span>
+            <div>
+              <h3>Local conversion / 本地转换</h3>
+              <p>Native helper prepares printer-ready payload with optimized DPI for thermal output.</p>
+            </div>
+          </li>
+          <li>
+            <span>3</span>
+            <div>
+              <h3>Direct queue send / 直接落盘</h3>
+              <p>Converted label data is sent to your Zebra printer queue in CUPS.</p>
+            </div>
+          </li>
         </ol>
       </section>
 
       <section class="card">
         <h2>3-step setup / 三步快速上手</h2>
         <ol class="plain-list">
-          <li>
-            <strong>Step 1 安装扩展：</strong>安装 Chrome 扩展并固定到工具栏。
-          </li>
-          <li>
-            <strong>Step 2 安装本地 App：</strong>下载并运行一次 App，完成 native host 注册。
-          </li>
-          <li>
-            <strong>Step 3 打印标签：</strong>返回 Chrome，点击 <code>Check Printer</code> →
-            <code>Print Selected PDF</code>。
-          </li>
+          <li><strong>Step 1 安装扩展:</strong> 点击安装并固定到 Chrome 工具栏。</li>
+          <li><strong>Step 2 安装 App:</strong> 下载并运行一次本地 App，完成 native host 注册。</li>
+          <li><strong>Step 3 开始打印:</strong> 回到 Chrome，点击 <code>Check Printer</code> → <code>Print Selected PDF</code>。</li>
         </ol>
       </section>
 
       <section class="card" id="files">
-        <h2>Download / 下载</h2>
+        <div class="section-head">
+          <h2>Download / 下载</h2>
+          <a class="inline-link" href="/#extension-guide">Need setup help?</a>
+        </div>
         <div class="download-grid">
           <a class="download" data-size="/download/dmg" href="__DMG_URL__" download="__DMG_LABEL__">
             <span>PrintBridge for Zebra Installer.dmg</span>
@@ -84,7 +138,7 @@
           <a class="download" data-size="/download/zip" href="__ZIP_URL__" download="__ZIP_LABEL__">
             <span>PrintBridge for Zebra Installer.zip</span>
             <small>
-              macOS Portable package · Size:
+              Portable package · Size:
               <span class="size">Calculating...</span>
             </small>
           </a>
@@ -98,8 +152,8 @@
           <a class="btn btn-secondary" href="__WEBSTORE_URL__" rel="noopener">
             Open Chrome Web Store
           </a>
-          <a class="btn btn-secondary" href="__WEBSTORE_URL__" rel="noopener">
-            Manage extension in Chrome
+          <a class="btn btn-secondary" href="/download" rel="noopener">
+            Install app now
           </a>
         </div>
         <ol class="plain-list">
@@ -138,13 +192,13 @@
           </li>
         </ul>
       </section>
-    </div>
+    </main>
 
     <div id="placeholder-warning" class="placeholder-warning" hidden>
       Using placeholder extension ID. Replace it after publish by setting PRINTBRIDGE_EXTENSION_ID.
     </div>
 
-    <footer class="footer">
+    <footer class="footer container">
       <p>
         Need help? Contact support: <a href="mailto:support@printbridge.local">support@printbridge.local</a>
       </p>
