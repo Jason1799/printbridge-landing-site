@@ -1,210 +1,325 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="PrintBridge for Zebra - Mac + Chrome label printing bridge"
-    />
-    <title>PrintBridge for Zebra</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <header class="top-nav">
-      <div class="container nav-inner">
-        <a class="brand" href="/">PrintBridge for Zebra</a>
-        <nav class="top-links" aria-label="Quick links">
-          <a href="/chrome-extension">Extension Guide</a>
-          <a href="/download">Download</a>
-          <a href="__WEBSTORE_URL__" rel="noopener">Chrome Web Store</a>
-        </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>CrispDock — crisp Zebra labels from any Mac app</title>
+  <meta name="description" content="A macOS printer driver for Zebra ZPL label printers. Sharp barcodes, no stutter, and shipping labels on letter sheets cut out and rotated to 4x6 automatically." />
+  <meta property="og:title" content="CrispDock" />
+  <meta property="og:description" content="Crisp Zebra labels from any Mac app." />
+  <meta property="og:image" content="/assets/sheet-label-4x6.png" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/icon-128.png" type="image/png" sizes="128x128" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Manrope:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/"><img src="/assets/favicon.svg" alt="" width="32" height="32" /><span>CrispDock <small>for Zebra printers</small></span></a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#how" data-i18n="nav.how">How it works</a>
+        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang" type="button" id="lang-toggle" aria-label="Switch language">中文</button>
+        <a class="btn btn-small btn-primary" href="{{DOWNLOAD_URL}}"><span data-i18n="nav.download">Download</span></a>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="layout">
-      <section class="hero">
-        <div class="hero-text">
-          <p class="eyebrow">macOS Label Printing Bridge</p>
-          <h1>PrintBridge for Zebra</h1>
-          <p class="hero-subtitle">
-            Print shipping labels from Chrome with clean text and sharp QR codes. Built for shipping teams
-            who need consistent results on Zebra ZP505.
-          </p>
-          <p class="hero-subtitle">
-            专为 macOS + Chrome 打印工作流设计，输出更清晰的 4×6 等标签内容，支持二维码、条码与小字显示。
-          </p>
-          <p class="hero-meta">
-            Version <strong id="release-version">__APP_VERSION__</strong> · macOS + Chrome
-          </p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="__WEBSTORE_URL__" rel="noopener">
-              Install Extension
-            </a>
-            <a class="btn btn-secondary" href="/download">Download App Package</a>
-            <a class="btn btn-ghost" href="/chrome-extension">Setup in 3 Steps</a>
+  <main>
+    <!-- Hero: centred pixel headline on the cloud canvas -->
+    <section class="hero">
+      <div class="sky" aria-hidden="true">
+        <span class="drift d1"><svg class="px-cloud" aria-hidden="true" viewBox="0 0 24 11" width="120" height="55" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="0" width="6" height="1" fill="#5c6066"/><rect x="6" y="1" width="2" height="1" fill="#5c6066"/><rect x="8" y="1" width="6" height="1" fill="#ffffff"/><rect x="14" y="1" width="2" height="1" fill="#5c6066"/><rect x="5" y="2" width="1" height="1" fill="#5c6066"/><rect x="6" y="2" width="10" height="1" fill="#ffffff"/><rect x="16" y="2" width="1" height="1" fill="#5c6066"/><rect x="18" y="2" width="4" height="1" fill="#5c6066"/><rect x="3" y="3" width="2" height="1" fill="#5c6066"/><rect x="5" y="3" width="11" height="1" fill="#ffffff"/><rect x="16" y="3" width="2" height="1" fill="#5c6066"/><rect x="18" y="3" width="4" height="1" fill="#ffffff"/><rect x="22" y="3" width="1" height="1" fill="#5c6066"/><rect x="2" y="4" width="1" height="1" fill="#5c6066"/><rect x="3" y="4" width="20" height="1" fill="#ffffff"/><rect x="23" y="4" width="1" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#5c6066"/><rect x="2" y="5" width="21" height="1" fill="#ffffff"/><rect x="23" y="5" width="1" height="1" fill="#5c6066"/><rect x="0" y="6" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="3" height="1" fill="#ffffff"/><rect x="4" y="6" width="1" height="1" fill="#e3f1fe"/><rect x="5" y="6" width="14" height="1" fill="#ffffff"/><rect x="19" y="6" width="1" height="1" fill="#e3f1fe"/><rect x="20" y="6" width="3" height="1" fill="#ffffff"/><rect x="23" y="6" width="1" height="1" fill="#5c6066"/><rect x="0" y="7" width="1" height="1" fill="#5c6066"/><rect x="1" y="7" width="2" height="1" fill="#ffffff"/><rect x="3" y="7" width="3" height="1" fill="#e3f1fe"/><rect x="6" y="7" width="4" height="1" fill="#ffffff"/><rect x="10" y="7" width="1" height="1" fill="#e3f1fe"/><rect x="11" y="7" width="7" height="1" fill="#ffffff"/><rect x="18" y="7" width="4" height="1" fill="#e3f1fe"/><rect x="22" y="7" width="1" height="1" fill="#ffffff"/><rect x="23" y="7" width="1" height="1" fill="#5c6066"/><rect x="0" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="8" width="1" height="1" fill="#c9e2fa"/><rect x="2" y="8" width="12" height="1" fill="#e3f1fe"/><rect x="14" y="8" width="2" height="1" fill="#c9e2fa"/><rect x="16" y="8" width="6" height="1" fill="#e3f1fe"/><rect x="22" y="8" width="1" height="1" fill="#c9e2fa"/><rect x="23" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="9" width="20" height="1" fill="#c9e2fa"/><rect x="22" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="10" width="20" height="1" fill="#5c6066"/></svg></span>
+        <span class="drift d2"><svg class="px-cloud" aria-hidden="true" viewBox="0 0 14 7" width="56" height="28" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="0" width="4" height="1" fill="#5c6066"/><rect x="3" y="1" width="2" height="1" fill="#5c6066"/><rect x="5" y="1" width="4" height="1" fill="#ffffff"/><rect x="9" y="1" width="1" height="1" fill="#5c6066"/><rect x="2" y="2" width="1" height="1" fill="#5c6066"/><rect x="3" y="2" width="7" height="1" fill="#ffffff"/><rect x="10" y="2" width="2" height="1" fill="#5c6066"/><rect x="1" y="3" width="1" height="1" fill="#5c6066"/><rect x="2" y="3" width="10" height="1" fill="#ffffff"/><rect x="12" y="3" width="1" height="1" fill="#5c6066"/><rect x="0" y="4" width="1" height="1" fill="#5c6066"/><rect x="1" y="4" width="3" height="1" fill="#ffffff"/><rect x="4" y="4" width="1" height="1" fill="#e3f1fe"/><rect x="5" y="4" width="5" height="1" fill="#ffffff"/><rect x="10" y="4" width="1" height="1" fill="#e3f1fe"/><rect x="11" y="4" width="2" height="1" fill="#ffffff"/><rect x="13" y="4" width="1" height="1" fill="#5c6066"/><rect x="0" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#c9e2fa"/><rect x="2" y="5" width="9" height="1" fill="#e3f1fe"/><rect x="11" y="5" width="2" height="1" fill="#c9e2fa"/><rect x="13" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="12" height="1" fill="#5c6066"/></svg></span>
+        <span class="drift d3"><svg class="px-cloud" aria-hidden="true" viewBox="0 0 24 11" width="96" height="44" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="0" width="6" height="1" fill="#5c6066"/><rect x="6" y="1" width="2" height="1" fill="#5c6066"/><rect x="8" y="1" width="6" height="1" fill="#ffffff"/><rect x="14" y="1" width="2" height="1" fill="#5c6066"/><rect x="5" y="2" width="1" height="1" fill="#5c6066"/><rect x="6" y="2" width="10" height="1" fill="#ffffff"/><rect x="16" y="2" width="1" height="1" fill="#5c6066"/><rect x="18" y="2" width="4" height="1" fill="#5c6066"/><rect x="3" y="3" width="2" height="1" fill="#5c6066"/><rect x="5" y="3" width="11" height="1" fill="#ffffff"/><rect x="16" y="3" width="2" height="1" fill="#5c6066"/><rect x="18" y="3" width="4" height="1" fill="#ffffff"/><rect x="22" y="3" width="1" height="1" fill="#5c6066"/><rect x="2" y="4" width="1" height="1" fill="#5c6066"/><rect x="3" y="4" width="20" height="1" fill="#ffffff"/><rect x="23" y="4" width="1" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#5c6066"/><rect x="2" y="5" width="21" height="1" fill="#ffffff"/><rect x="23" y="5" width="1" height="1" fill="#5c6066"/><rect x="0" y="6" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="3" height="1" fill="#ffffff"/><rect x="4" y="6" width="1" height="1" fill="#e3f1fe"/><rect x="5" y="6" width="14" height="1" fill="#ffffff"/><rect x="19" y="6" width="1" height="1" fill="#e3f1fe"/><rect x="20" y="6" width="3" height="1" fill="#ffffff"/><rect x="23" y="6" width="1" height="1" fill="#5c6066"/><rect x="0" y="7" width="1" height="1" fill="#5c6066"/><rect x="1" y="7" width="2" height="1" fill="#ffffff"/><rect x="3" y="7" width="3" height="1" fill="#e3f1fe"/><rect x="6" y="7" width="4" height="1" fill="#ffffff"/><rect x="10" y="7" width="1" height="1" fill="#e3f1fe"/><rect x="11" y="7" width="7" height="1" fill="#ffffff"/><rect x="18" y="7" width="4" height="1" fill="#e3f1fe"/><rect x="22" y="7" width="1" height="1" fill="#ffffff"/><rect x="23" y="7" width="1" height="1" fill="#5c6066"/><rect x="0" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="8" width="1" height="1" fill="#c9e2fa"/><rect x="2" y="8" width="12" height="1" fill="#e3f1fe"/><rect x="14" y="8" width="2" height="1" fill="#c9e2fa"/><rect x="16" y="8" width="6" height="1" fill="#e3f1fe"/><rect x="22" y="8" width="1" height="1" fill="#c9e2fa"/><rect x="23" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="9" width="20" height="1" fill="#c9e2fa"/><rect x="22" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="10" width="20" height="1" fill="#5c6066"/></svg></span>
+      </div>
+      <div class="container hero-stack">
+        <p class="eyebrow" data-i18n="hero.eyebrow">macOS driver for Zebra ZPL label printers</p>
+        <h1 class="display">
+          <span class="line" data-i18n="hero.title1">Crisp Zebra labels</span>
+          <span class="line accent" data-i18n="hero.title2">from any Mac app.</span>
+        </h1>
+        <p class="lead" data-i18n="hero.lead">CrispDock replaces the fuzzy built-in macOS driver. Barcodes come out sharp, labels print without pausing, and shipping labels on letter-size sheets are cut out and rotated to 4×6 for you.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="{{DOWNLOAD_URL}}">
+            <span data-i18n="hero.download">Download free</span>
+            <span class="btn-meta">v{{VERSION}} · {{DOWNLOAD_SIZE}}</span>
+            <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4"/></svg>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#pricing" data-i18n="hero.pricing">See pricing</a>
+        </div>
+        <ul class="facts">
+          <li data-i18n="hero.fact1">macOS 13 or later</li>
+          <li data-i18n="hero.fact2">Apple silicon &amp; Intel</li>
+          <li data-i18n="hero.fact3">Signed &amp; notarized by Apple</li>
+        </ul>
+      </div>
+
+      <div class="container">
+        <figure class="transform card" aria-label="A letter sheet becomes a 4×6 label">
+          <div class="paper paper-sheet"><img src="/assets/sheet-letter.png" alt="Two shipping labels printed side by side on a letter-size sheet, with a note below" width="386" height="500" /></div>
+          <div class="transform-mid" aria-hidden="true">
+            <span class="mascot-wrap"><svg class="px-mascot" aria-hidden="true" viewBox="0 0 16 15" width="80" height="75" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="0" width="8" height="1" fill="#ff5e24"/><rect x="4" y="1" width="1" height="1" fill="#ff5e24"/><rect x="5" y="1" width="6" height="1" fill="#ffffff"/><rect x="11" y="1" width="1" height="1" fill="#ff5e24"/><rect x="4" y="2" width="1" height="1" fill="#ff5e24"/><rect x="5" y="2" width="1" height="1" fill="#ffffff"/><rect x="6" y="2" width="1" height="1" fill="#232629"/><rect x="7" y="2" width="1" height="1" fill="#ffffff"/><rect x="8" y="2" width="1" height="1" fill="#232629"/><rect x="9" y="2" width="1" height="1" fill="#ffffff"/><rect x="10" y="2" width="1" height="1" fill="#232629"/><rect x="11" y="2" width="1" height="1" fill="#ff5e24"/><rect x="4" y="3" width="1" height="1" fill="#ff5e24"/><rect x="5" y="3" width="1" height="1" fill="#ffffff"/><rect x="6" y="3" width="1" height="1" fill="#232629"/><rect x="7" y="3" width="1" height="1" fill="#ffffff"/><rect x="8" y="3" width="1" height="1" fill="#232629"/><rect x="9" y="3" width="1" height="1" fill="#ffffff"/><rect x="10" y="3" width="1" height="1" fill="#232629"/><rect x="11" y="3" width="1" height="1" fill="#ff5e24"/><rect x="2" y="4" width="2" height="1" fill="#5c6066"/><rect x="4" y="4" width="8" height="1" fill="#ff5e24"/><rect x="12" y="4" width="2" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#5c6066"/><rect x="2" y="5" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="1" height="1" fill="#5c6066"/><rect x="2" y="6" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="6" width="10" height="1" fill="#5c6066"/><rect x="13" y="6" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="6" width="1" height="1" fill="#5c6066"/><rect x="1" y="7" width="1" height="1" fill="#5c6066"/><rect x="2" y="7" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="7" width="1" height="1" fill="#5c6066"/><rect x="4" y="7" width="1" height="1" fill="#232629"/><rect x="5" y="7" width="1" height="1" fill="#ffffff"/><rect x="6" y="7" width="4" height="1" fill="#5c6066"/><rect x="10" y="7" width="1" height="1" fill="#232629"/><rect x="11" y="7" width="1" height="1" fill="#ffffff"/><rect x="12" y="7" width="1" height="1" fill="#5c6066"/><rect x="13" y="7" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="7" width="1" height="1" fill="#5c6066"/><rect x="1" y="8" width="1" height="1" fill="#5c6066"/><rect x="2" y="8" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="8" width="1" height="1" fill="#5c6066"/><rect x="4" y="8" width="2" height="1" fill="#232629"/><rect x="6" y="8" width="4" height="1" fill="#5c6066"/><rect x="10" y="8" width="2" height="1" fill="#232629"/><rect x="12" y="8" width="1" height="1" fill="#5c6066"/><rect x="13" y="8" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="9" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="9" width="10" height="1" fill="#5c6066"/><rect x="13" y="9" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="9" width="1" height="1" fill="#5c6066"/><rect x="1" y="10" width="1" height="1" fill="#5c6066"/><rect x="2" y="10" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="10" width="1" height="1" fill="#5c6066"/><rect x="1" y="11" width="1" height="1" fill="#5c6066"/><rect x="2" y="11" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="11" width="2" height="1" fill="#989ea4"/><rect x="5" y="11" width="7" height="1" fill="#dfe3e8"/><rect x="12" y="11" width="1" height="1" fill="#ff5e24"/><rect x="13" y="11" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="11" width="1" height="1" fill="#5c6066"/><rect x="1" y="12" width="1" height="1" fill="#5c6066"/><rect x="2" y="12" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="12" width="1" height="1" fill="#5c6066"/><rect x="2" y="13" width="12" height="1" fill="#5c6066"/><rect x="3" y="14" width="2" height="1" fill="#5c6066"/><rect x="11" y="14" width="2" height="1" fill="#5c6066"/></svg></span>
+            <svg class="arrow-px" viewBox="0 0 14 7" shape-rendering="crispEdges"><path fill="#ff5e24" d="M0 3h10v1H0zM8 1h1v1H8zM9 2h1v1H9zM10 3h1v1h-1zM9 4h1v1H9zM8 5h1v1H8zM11 3h1v1h-1z"/></svg>
+          </div>
+          <div class="paper paper-label"><img src="/assets/sheet-label-4x6.png" alt="The first label, cut out and filling a 4×6 label" width="408" height="609" /></div>
+          <figcaption data-i18n="hero.caption">Real output: two labels on one letter sheet, each printed as its own 4×6.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+      <div class="sky" aria-hidden="true"><span class="drift d4"><svg class="px-cloud" aria-hidden="true" viewBox="0 0 14 7" width="56" height="28" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="0" width="4" height="1" fill="#5c6066"/><rect x="3" y="1" width="2" height="1" fill="#5c6066"/><rect x="5" y="1" width="4" height="1" fill="#ffffff"/><rect x="9" y="1" width="1" height="1" fill="#5c6066"/><rect x="2" y="2" width="1" height="1" fill="#5c6066"/><rect x="3" y="2" width="7" height="1" fill="#ffffff"/><rect x="10" y="2" width="2" height="1" fill="#5c6066"/><rect x="1" y="3" width="1" height="1" fill="#5c6066"/><rect x="2" y="3" width="10" height="1" fill="#ffffff"/><rect x="12" y="3" width="1" height="1" fill="#5c6066"/><rect x="0" y="4" width="1" height="1" fill="#5c6066"/><rect x="1" y="4" width="3" height="1" fill="#ffffff"/><rect x="4" y="4" width="1" height="1" fill="#e3f1fe"/><rect x="5" y="4" width="5" height="1" fill="#ffffff"/><rect x="10" y="4" width="1" height="1" fill="#e3f1fe"/><rect x="11" y="4" width="2" height="1" fill="#ffffff"/><rect x="13" y="4" width="1" height="1" fill="#5c6066"/><rect x="0" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#c9e2fa"/><rect x="2" y="5" width="9" height="1" fill="#e3f1fe"/><rect x="11" y="5" width="2" height="1" fill="#c9e2fa"/><rect x="13" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="12" height="1" fill="#5c6066"/></svg></span></div>
+      <div class="container">
+        <div class="section-head">
+          <h2 class="heading" data-i18n="features.title">Everything the built-in driver gets wrong</h2>
+          <p class="section-lead" data-i18n="features.lead">macOS ships a generic Zebra driver that blurs barcodes and streams labels slowly. CrispDock converts every page into clean printer commands made for thermal labels.</p>
+        </div>
+        <figure class="ba card">
+          <div class="ba-stage">
+          <div class="ba-frame" id="ba" role="slider" tabindex="0" aria-label="Before and after" data-i18n-label="ba.label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--pos: 50%">
+            <img class="ba-img" src="/assets/compare-after.jpg" alt="Printed with CrispDock: sharp letters and clean, straight barcode bars" width="1600" height="692" loading="lazy" draggable="false" />
+            <img class="ba-img ba-before" src="/assets/compare-before.jpg" alt="Printed with the built-in macOS driver: jagged letters and fuzzy, ragged barcode bars" width="1600" height="692" loading="lazy" draggable="false" />
+            <span class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 13 7" width="26" height="14" shape-rendering="crispEdges"><path fill="#fff" d="M3 0h1v1H3zM2 1h1v1H2zM1 2h1v1H1zM0 3h5v1H0zM1 4h1v1H1zM2 5h1v1H2zM3 6h1v1H3zM9 0h1v1H9zM10 1h1v1h-1zM11 2h1v1h-1zM8 3h5v1H8zM11 4h1v1h-1zM10 5h1v1h-1zM9 6h1v1H9z"/></svg></span></span>
+          </div>
+          <div class="ba-tags" aria-hidden="true">
+            <span class="ba-tag ba-tag-l" data-i18n="ba.before">Built-in macOS driver</span>
+            <span class="ba-tag ba-tag-r" data-i18n="ba.after">CrispDock</span>
+          </div>
+          </div>
+          <figcaption data-i18n="ba.caption">Real photos, zoomed in: a USPS label from the built-in macOS driver (left) and from CrispDock (right). Drag the line to compare.</figcaption>
+        </figure>
+        <div class="feature-grid">
+          <article class="feature card"><svg class="px-icon" aria-hidden="true" viewBox="0 0 12 12" width="48" height="48" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="1" height="1" fill="#ff5e24"/><rect x="3" y="1" width="2" height="1" fill="#ff5e24"/><rect x="6" y="1" width="1" height="1" fill="#ff5e24"/><rect x="8" y="1" width="2" height="1" fill="#ff5e24"/><rect x="1" y="2" width="1" height="1" fill="#ff5e24"/><rect x="3" y="2" width="2" height="1" fill="#ff5e24"/><rect x="6" y="2" width="1" height="1" fill="#ff5e24"/><rect x="8" y="2" width="2" height="1" fill="#ff5e24"/><rect x="11" y="2" width="1" height="1" fill="#ff5e24"/><rect x="1" y="3" width="1" height="1" fill="#ff5e24"/><rect x="3" y="3" width="2" height="1" fill="#ff5e24"/><rect x="6" y="3" width="1" height="1" fill="#ff5e24"/><rect x="8" y="3" width="2" height="1" fill="#ff5e24"/><rect x="11" y="3" width="1" height="1" fill="#ff5e24"/><rect x="1" y="4" width="1" height="1" fill="#ff5e24"/><rect x="3" y="4" width="2" height="1" fill="#ff5e24"/><rect x="6" y="4" width="1" height="1" fill="#ff5e24"/><rect x="8" y="4" width="2" height="1" fill="#ff5e24"/><rect x="11" y="4" width="1" height="1" fill="#ff5e24"/><rect x="1" y="5" width="1" height="1" fill="#ff5e24"/><rect x="3" y="5" width="2" height="1" fill="#ff5e24"/><rect x="6" y="5" width="1" height="1" fill="#ff5e24"/><rect x="8" y="5" width="2" height="1" fill="#ff5e24"/><rect x="11" y="5" width="1" height="1" fill="#ff5e24"/><rect x="1" y="6" width="1" height="1" fill="#ff5e24"/><rect x="3" y="6" width="2" height="1" fill="#ff5e24"/><rect x="6" y="6" width="1" height="1" fill="#ff5e24"/><rect x="8" y="6" width="2" height="1" fill="#ff5e24"/><rect x="11" y="6" width="1" height="1" fill="#ff5e24"/><rect x="1" y="7" width="1" height="1" fill="#ff5e24"/><rect x="3" y="7" width="2" height="1" fill="#ff5e24"/><rect x="6" y="7" width="1" height="1" fill="#ff5e24"/><rect x="8" y="7" width="2" height="1" fill="#ff5e24"/><rect x="11" y="7" width="1" height="1" fill="#ff5e24"/><rect x="1" y="8" width="1" height="1" fill="#ff5e24"/><rect x="3" y="8" width="2" height="1" fill="#ff5e24"/><rect x="6" y="8" width="1" height="1" fill="#ff5e24"/><rect x="8" y="8" width="2" height="1" fill="#ff5e24"/><rect x="11" y="8" width="1" height="1" fill="#ff5e24"/><rect x="1" y="10" width="10" height="1" fill="#232629"/></svg><h3 data-i18n="f1.title">Sharp barcodes</h3><p data-i18n="f1.body">Bars, 2D codes and small print land on the printer's dot grid, so scanners read them first time.</p></article>
+          <article class="feature card"><svg class="px-icon" aria-hidden="true" viewBox="0 0 12 12" width="48" height="48" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="0" width="3" height="1" fill="#ff5e24"/><rect x="5" y="1" width="3" height="1" fill="#ff5e24"/><rect x="4" y="2" width="3" height="1" fill="#ff5e24"/><rect x="3" y="3" width="3" height="1" fill="#ff5e24"/><rect x="2" y="4" width="7" height="1" fill="#ff5e24"/><rect x="4" y="5" width="4" height="1" fill="#ff5e24"/><rect x="4" y="6" width="3" height="1" fill="#ff5e24"/><rect x="3" y="7" width="3" height="1" fill="#ff5e24"/><rect x="2" y="8" width="3" height="1" fill="#ff5e24"/><rect x="2" y="9" width="2" height="1" fill="#ff5e24"/><rect x="1" y="10" width="2" height="1" fill="#ff5e24"/></svg><h3 data-i18n="f2.title">No stop-and-go</h3><p data-i18n="f2.body">Each label is compressed and sent in one piece, so the printer runs smoothly instead of pausing mid-label.</p></article>
+          <article class="feature card"><svg class="px-icon" aria-hidden="true" viewBox="0 0 12 12" width="48" height="48" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="0" width="7" height="1" fill="#232629"/><rect x="2" y="1" width="1" height="1" fill="#232629"/><rect x="3" y="1" width="5" height="1" fill="#ffffff"/><rect x="8" y="1" width="2" height="1" fill="#232629"/><rect x="2" y="2" width="1" height="1" fill="#232629"/><rect x="3" y="2" width="1" height="1" fill="#ffffff"/><rect x="4" y="2" width="3" height="1" fill="#ff5e24"/><rect x="7" y="2" width="2" height="1" fill="#ffffff"/><rect x="9" y="2" width="1" height="1" fill="#232629"/><rect x="2" y="3" width="1" height="1" fill="#232629"/><rect x="3" y="3" width="6" height="1" fill="#ffffff"/><rect x="9" y="3" width="1" height="1" fill="#232629"/><rect x="2" y="4" width="1" height="1" fill="#232629"/><rect x="3" y="4" width="1" height="1" fill="#ffffff"/><rect x="4" y="4" width="4" height="1" fill="#ff5e24"/><rect x="8" y="4" width="1" height="1" fill="#ffffff"/><rect x="9" y="4" width="1" height="1" fill="#232629"/><rect x="2" y="5" width="1" height="1" fill="#232629"/><rect x="3" y="5" width="6" height="1" fill="#ffffff"/><rect x="9" y="5" width="1" height="1" fill="#232629"/><rect x="2" y="6" width="1" height="1" fill="#232629"/><rect x="3" y="6" width="1" height="1" fill="#ffffff"/><rect x="4" y="6" width="4" height="1" fill="#ff5e24"/><rect x="8" y="6" width="1" height="1" fill="#ffffff"/><rect x="9" y="6" width="1" height="1" fill="#232629"/><rect x="2" y="7" width="1" height="1" fill="#232629"/><rect x="3" y="7" width="6" height="1" fill="#ffffff"/><rect x="9" y="7" width="1" height="1" fill="#232629"/><rect x="2" y="8" width="1" height="1" fill="#232629"/><rect x="3" y="8" width="1" height="1" fill="#ffffff"/><rect x="4" y="8" width="2" height="1" fill="#ff5e24"/><rect x="6" y="8" width="3" height="1" fill="#ffffff"/><rect x="9" y="8" width="1" height="1" fill="#232629"/><rect x="2" y="9" width="1" height="1" fill="#232629"/><rect x="3" y="9" width="6" height="1" fill="#ffffff"/><rect x="9" y="9" width="1" height="1" fill="#232629"/><rect x="2" y="10" width="8" height="1" fill="#232629"/></svg><h3 data-i18n="f3.title">Any app, same size</h3><p data-i18n="f3.body">Print from Chrome, Safari, Preview or any PDF app with ⌘P. Margins added by the app are ignored — the label always fills 4×6.</p></article>
+          <article class="feature card"><svg class="px-icon" aria-hidden="true" viewBox="0 0 12 12" width="48" height="48" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="12" height="1" fill="#232629"/><rect x="0" y="1" width="1" height="1" fill="#232629"/><rect x="1" y="1" width="10" height="1" fill="#ffffff"/><rect x="11" y="1" width="1" height="1" fill="#232629"/><rect x="0" y="2" width="1" height="1" fill="#232629"/><rect x="1" y="2" width="1" height="1" fill="#ffffff"/><rect x="2" y="2" width="5" height="1" fill="#ff5e24"/><rect x="7" y="2" width="4" height="1" fill="#ffffff"/><rect x="11" y="2" width="1" height="1" fill="#232629"/><rect x="0" y="3" width="1" height="1" fill="#232629"/><rect x="1" y="3" width="1" height="1" fill="#ffffff"/><rect x="2" y="3" width="1" height="1" fill="#ff5e24"/><rect x="3" y="3" width="3" height="1" fill="#ffffff"/><rect x="6" y="3" width="1" height="1" fill="#ff5e24"/><rect x="7" y="3" width="4" height="1" fill="#ffffff"/><rect x="11" y="3" width="1" height="1" fill="#232629"/><rect x="0" y="4" width="1" height="1" fill="#232629"/><rect x="1" y="4" width="1" height="1" fill="#ffffff"/><rect x="2" y="4" width="1" height="1" fill="#ff5e24"/><rect x="3" y="4" width="3" height="1" fill="#ffffff"/><rect x="6" y="4" width="1" height="1" fill="#ff5e24"/><rect x="7" y="4" width="4" height="1" fill="#ffffff"/><rect x="11" y="4" width="1" height="1" fill="#232629"/><rect x="0" y="5" width="1" height="1" fill="#232629"/><rect x="1" y="5" width="1" height="1" fill="#ffffff"/><rect x="2" y="5" width="1" height="1" fill="#ff5e24"/><rect x="3" y="5" width="3" height="1" fill="#ffffff"/><rect x="6" y="5" width="1" height="1" fill="#ff5e24"/><rect x="7" y="5" width="1" height="1" fill="#ffffff"/><rect x="9" y="5" width="3" height="1" fill="#ffffff"/><rect x="0" y="6" width="1" height="1" fill="#232629"/><rect x="1" y="6" width="1" height="1" fill="#ffffff"/><rect x="2" y="6" width="5" height="1" fill="#ff5e24"/><rect x="7" y="6" width="1" height="1" fill="#ffffff"/><rect x="10" y="6" width="1" height="1" fill="#ffffff"/><rect x="0" y="7" width="1" height="1" fill="#232629"/><rect x="1" y="7" width="7" height="1" fill="#ffffff"/><rect x="9" y="7" width="1" height="1" fill="#ffffff"/><rect x="11" y="7" width="1" height="1" fill="#ffffff"/><rect x="0" y="8" width="1" height="1" fill="#232629"/><rect x="1" y="8" width="8" height="1" fill="#ffffff"/><rect x="0" y="9" width="1" height="1" fill="#232629"/><rect x="1" y="9" width="10" height="1" fill="#ffffff"/><rect x="11" y="9" width="1" height="1" fill="#232629"/><rect x="0" y="10" width="12" height="1" fill="#232629"/></svg><h3 data-i18n="f4.title">Labels on letter sheets</h3><p data-i18n="f4.body">Labels printed for 8.5×11 paper — one or two per page, framed or not, sideways or upright — are found, cut out and rotated automatically.</p></article>
+          <article class="feature card"><svg class="px-icon" aria-hidden="true" viewBox="0 0 12 12" width="48" height="48" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="1" width="6" height="1" fill="#ff5e24"/><rect x="1" y="2" width="2" height="1" fill="#ff5e24"/><rect x="9" y="2" width="2" height="1" fill="#ff5e24"/><rect x="0" y="3" width="1" height="1" fill="#ff5e24"/><rect x="11" y="3" width="1" height="1" fill="#ff5e24"/><rect x="3" y="4" width="6" height="1" fill="#ff5e24"/><rect x="2" y="5" width="1" height="1" fill="#ff5e24"/><rect x="9" y="5" width="1" height="1" fill="#ff5e24"/><rect x="4" y="7" width="4" height="1" fill="#ff5e24"/><rect x="3" y="8" width="1" height="1" fill="#ff5e24"/><rect x="8" y="8" width="1" height="1" fill="#ff5e24"/><rect x="5" y="10" width="2" height="1" fill="#232629"/><rect x="5" y="11" width="2" height="1" fill="#232629"/></svg><h3 data-i18n="f5.title">USB or network</h3><p data-i18n="f5.body">The installer finds Zebra printers on USB and your network, and detects 203, 300 or 600 dpi heads.</p></article>
+          <article class="feature card"><svg class="px-icon" aria-hidden="true" viewBox="0 0 12 12" width="48" height="48" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="2" width="4" height="1" fill="#232629"/><rect x="2" y="3" width="2" height="1" fill="#232629"/><rect x="8" y="3" width="2" height="1" fill="#232629"/><rect x="1" y="4" width="1" height="1" fill="#232629"/><rect x="5" y="4" width="2" height="1" fill="#ff5e24"/><rect x="10" y="4" width="1" height="1" fill="#232629"/><rect x="0" y="5" width="1" height="1" fill="#232629"/><rect x="4" y="5" width="4" height="1" fill="#ff5e24"/><rect x="11" y="5" width="1" height="1" fill="#232629"/><rect x="0" y="6" width="1" height="1" fill="#232629"/><rect x="4" y="6" width="1" height="1" fill="#ff5e24"/><rect x="5" y="6" width="2" height="1" fill="#232629"/><rect x="7" y="6" width="1" height="1" fill="#ff5e24"/><rect x="11" y="6" width="1" height="1" fill="#232629"/><rect x="1" y="7" width="1" height="1" fill="#232629"/><rect x="5" y="7" width="2" height="1" fill="#ff5e24"/><rect x="10" y="7" width="1" height="1" fill="#232629"/><rect x="2" y="8" width="2" height="1" fill="#232629"/><rect x="8" y="8" width="2" height="1" fill="#232629"/><rect x="4" y="9" width="4" height="1" fill="#232629"/></svg><h3 data-i18n="f6.title">Preview before you print</h3><p data-i18n="f6.body">Drop a PDF, PNG, JPEG or iPhone photo into the CrispDock app and see every label exactly as the printer will get it.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- App window -->
+    <section class="section" id="preview">
+      <div class="sky" aria-hidden="true"><span class="drift d5"><svg class="px-cloud" aria-hidden="true" viewBox="0 0 24 11" width="96" height="44" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="0" width="6" height="1" fill="#5c6066"/><rect x="6" y="1" width="2" height="1" fill="#5c6066"/><rect x="8" y="1" width="6" height="1" fill="#ffffff"/><rect x="14" y="1" width="2" height="1" fill="#5c6066"/><rect x="5" y="2" width="1" height="1" fill="#5c6066"/><rect x="6" y="2" width="10" height="1" fill="#ffffff"/><rect x="16" y="2" width="1" height="1" fill="#5c6066"/><rect x="18" y="2" width="4" height="1" fill="#5c6066"/><rect x="3" y="3" width="2" height="1" fill="#5c6066"/><rect x="5" y="3" width="11" height="1" fill="#ffffff"/><rect x="16" y="3" width="2" height="1" fill="#5c6066"/><rect x="18" y="3" width="4" height="1" fill="#ffffff"/><rect x="22" y="3" width="1" height="1" fill="#5c6066"/><rect x="2" y="4" width="1" height="1" fill="#5c6066"/><rect x="3" y="4" width="20" height="1" fill="#ffffff"/><rect x="23" y="4" width="1" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#5c6066"/><rect x="2" y="5" width="21" height="1" fill="#ffffff"/><rect x="23" y="5" width="1" height="1" fill="#5c6066"/><rect x="0" y="6" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="3" height="1" fill="#ffffff"/><rect x="4" y="6" width="1" height="1" fill="#e3f1fe"/><rect x="5" y="6" width="14" height="1" fill="#ffffff"/><rect x="19" y="6" width="1" height="1" fill="#e3f1fe"/><rect x="20" y="6" width="3" height="1" fill="#ffffff"/><rect x="23" y="6" width="1" height="1" fill="#5c6066"/><rect x="0" y="7" width="1" height="1" fill="#5c6066"/><rect x="1" y="7" width="2" height="1" fill="#ffffff"/><rect x="3" y="7" width="3" height="1" fill="#e3f1fe"/><rect x="6" y="7" width="4" height="1" fill="#ffffff"/><rect x="10" y="7" width="1" height="1" fill="#e3f1fe"/><rect x="11" y="7" width="7" height="1" fill="#ffffff"/><rect x="18" y="7" width="4" height="1" fill="#e3f1fe"/><rect x="22" y="7" width="1" height="1" fill="#ffffff"/><rect x="23" y="7" width="1" height="1" fill="#5c6066"/><rect x="0" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="8" width="1" height="1" fill="#c9e2fa"/><rect x="2" y="8" width="12" height="1" fill="#e3f1fe"/><rect x="14" y="8" width="2" height="1" fill="#c9e2fa"/><rect x="16" y="8" width="6" height="1" fill="#e3f1fe"/><rect x="22" y="8" width="1" height="1" fill="#c9e2fa"/><rect x="23" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="9" width="20" height="1" fill="#c9e2fa"/><rect x="22" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="10" width="20" height="1" fill="#5c6066"/></svg></span><span class="drift d6"><svg class="px-cloud" aria-hidden="true" viewBox="0 0 14 7" width="56" height="28" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="0" width="4" height="1" fill="#5c6066"/><rect x="3" y="1" width="2" height="1" fill="#5c6066"/><rect x="5" y="1" width="4" height="1" fill="#ffffff"/><rect x="9" y="1" width="1" height="1" fill="#5c6066"/><rect x="2" y="2" width="1" height="1" fill="#5c6066"/><rect x="3" y="2" width="7" height="1" fill="#ffffff"/><rect x="10" y="2" width="2" height="1" fill="#5c6066"/><rect x="1" y="3" width="1" height="1" fill="#5c6066"/><rect x="2" y="3" width="10" height="1" fill="#ffffff"/><rect x="12" y="3" width="1" height="1" fill="#5c6066"/><rect x="0" y="4" width="1" height="1" fill="#5c6066"/><rect x="1" y="4" width="3" height="1" fill="#ffffff"/><rect x="4" y="4" width="1" height="1" fill="#e3f1fe"/><rect x="5" y="4" width="5" height="1" fill="#ffffff"/><rect x="10" y="4" width="1" height="1" fill="#e3f1fe"/><rect x="11" y="4" width="2" height="1" fill="#ffffff"/><rect x="13" y="4" width="1" height="1" fill="#5c6066"/><rect x="0" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#c9e2fa"/><rect x="2" y="5" width="9" height="1" fill="#e3f1fe"/><rect x="11" y="5" width="2" height="1" fill="#c9e2fa"/><rect x="13" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="12" height="1" fill="#5c6066"/></svg></span></div>
+      <div class="container">
+        <div class="section-head center">
+          <h2 class="heading" data-i18n="preview.title">See every label before it prints</h2>
+          <p class="section-lead" data-i18n="preview.lead">The CrispDock app shows the exact output of the driver — one tile per label. A sheet with two shipping labels becomes two upright 4×6 labels.</p>
+        </div>
+        <div class="app-window">
+          <img class="screenshot" src="/assets/app-preview.png" alt="The CrispDock app previewing two labels cut from one letter sheet" width="1372" height="873" loading="lazy" />
+        </div>
+        <ul class="pills">
+          <li><span class="pill-dot"></span><span data-i18n="preview.c1">Set up printers in one click</span></li>
+          <li><span class="pill-dot"></span><span data-i18n="preview.c2">Adjust darkness and speed per printer</span></li>
+          <li><span class="pill-dot"></span><span data-i18n="preview.c3">Print a test label to check scanning</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="heading" data-i18n="how.title">Up and running in two minutes</h2>
+        </div>
+        <ol class="steps">
+          <li class="card"><span class="step-n">01</span><h3 data-i18n="how.s1.title">Install</h3><p data-i18n="how.s1.body">Open the installer with your Zebra connected. It sets up every printer it finds and keeps their names, so other apps keep working.</p></li>
+          <li class="card"><span class="step-n">02</span><h3 data-i18n="how.s2.title">Print as usual</h3><p data-i18n="how.s2.body">Press ⌘P in any app, pick the Zebra printer and 4×6 paper.</p></li>
+          <li class="card"><span class="step-n">03</span><h3 data-i18n="how.s3.title">Ship it</h3><p data-i18n="how.s3.body">Sharp, full-size labels come out in one smooth pass.</p></li>
+        </ol>
+        <div class="compat">
+          <div class="card compat-yes">
+            <h3 data-i18n="compat.yes.title">Works with</h3>
+            <p data-i18n="compat.yes.body">Zebra printers that speak ZPL — for example GK420, GX420/430, ZD410/420/421/620, ZP 450/500/505 (ZPL) and ZT series — over USB, Ethernet or Wi-Fi, at 203, 300 or 600 dpi.</p>
+          </div>
+          <div class="card compat-no">
+            <h3 data-i18n="compat.no.title">Not supported</h3>
+            <p data-i18n="compat.no.body">EPL-only models such as the LP 2844, CPCL mobile printers, and Bluetooth connections (macOS can't print to them).</p>
           </div>
         </div>
-        <div class="hero-card">
-          <h2>What this solves</h2>
-          <ul>
-            <li>Chrome PDF preview output is blurry for thermal labels</li>
-            <li>Printer queue needs macOS-native conversion and sizing</li>
-            <li>Local helper sends printer-ready data directly</li>
-          </ul>
-          <p>
-            解决 Chrome 打印模糊的问题，建立一条更短更稳定的本地打印链路。
-          </p>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="hero-badges">
-        <div class="badge-item">
-          <strong>4×6</strong>
-          <span>Supported default size</span>
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+      <div class="sky" aria-hidden="true"><span class="drift d7"><svg class="px-cloud" aria-hidden="true" viewBox="0 0 24 11" width="120" height="55" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="0" width="6" height="1" fill="#5c6066"/><rect x="6" y="1" width="2" height="1" fill="#5c6066"/><rect x="8" y="1" width="6" height="1" fill="#ffffff"/><rect x="14" y="1" width="2" height="1" fill="#5c6066"/><rect x="5" y="2" width="1" height="1" fill="#5c6066"/><rect x="6" y="2" width="10" height="1" fill="#ffffff"/><rect x="16" y="2" width="1" height="1" fill="#5c6066"/><rect x="18" y="2" width="4" height="1" fill="#5c6066"/><rect x="3" y="3" width="2" height="1" fill="#5c6066"/><rect x="5" y="3" width="11" height="1" fill="#ffffff"/><rect x="16" y="3" width="2" height="1" fill="#5c6066"/><rect x="18" y="3" width="4" height="1" fill="#ffffff"/><rect x="22" y="3" width="1" height="1" fill="#5c6066"/><rect x="2" y="4" width="1" height="1" fill="#5c6066"/><rect x="3" y="4" width="20" height="1" fill="#ffffff"/><rect x="23" y="4" width="1" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#5c6066"/><rect x="2" y="5" width="21" height="1" fill="#ffffff"/><rect x="23" y="5" width="1" height="1" fill="#5c6066"/><rect x="0" y="6" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="3" height="1" fill="#ffffff"/><rect x="4" y="6" width="1" height="1" fill="#e3f1fe"/><rect x="5" y="6" width="14" height="1" fill="#ffffff"/><rect x="19" y="6" width="1" height="1" fill="#e3f1fe"/><rect x="20" y="6" width="3" height="1" fill="#ffffff"/><rect x="23" y="6" width="1" height="1" fill="#5c6066"/><rect x="0" y="7" width="1" height="1" fill="#5c6066"/><rect x="1" y="7" width="2" height="1" fill="#ffffff"/><rect x="3" y="7" width="3" height="1" fill="#e3f1fe"/><rect x="6" y="7" width="4" height="1" fill="#ffffff"/><rect x="10" y="7" width="1" height="1" fill="#e3f1fe"/><rect x="11" y="7" width="7" height="1" fill="#ffffff"/><rect x="18" y="7" width="4" height="1" fill="#e3f1fe"/><rect x="22" y="7" width="1" height="1" fill="#ffffff"/><rect x="23" y="7" width="1" height="1" fill="#5c6066"/><rect x="0" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="8" width="1" height="1" fill="#c9e2fa"/><rect x="2" y="8" width="12" height="1" fill="#e3f1fe"/><rect x="14" y="8" width="2" height="1" fill="#c9e2fa"/><rect x="16" y="8" width="6" height="1" fill="#e3f1fe"/><rect x="22" y="8" width="1" height="1" fill="#c9e2fa"/><rect x="23" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="9" width="20" height="1" fill="#c9e2fa"/><rect x="22" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="10" width="20" height="1" fill="#5c6066"/></svg></span></div>
+      <div class="container">
+        <div class="section-head center">
+          <h2 class="heading" data-i18n="pricing.title">Simple pricing</h2>
+          <p class="section-lead" data-i18n="pricing.lead">Every feature is free to try. Pick a plan to remove the “CrispDock FREE” watermark from your labels — pay monthly, yearly, or once.</p>
+          <div class="tier-switch" role="radiogroup" aria-label="Plan" data-i18n-label="tier.label">
+            <button type="button" role="radio" aria-checked="true" data-tier="pro" data-i18n="tier.pro">Pro</button>
+            <button type="button" role="radio" aria-checked="false" data-tier="airshare" data-i18n="tier.airshare">Pro + AirShare</button>
+          </div>
+          <p class="tier-note" data-tier-only="pro" data-i18n="tier.pro.note">No watermark on labels you print from this Mac.</p>
+          <p class="tier-note" data-tier-only="airshare" hidden data-i18n="tier.airshare.note">Also print from iPhone, iPad and other Macs on your Wi‑Fi through this Mac — no watermark there either.</p>
         </div>
-        <div class="badge-item">
-          <strong>Fast</strong>
-          <span>Continuous label flow</span>
+        <div class="plans" data-checkout-base="{{CHECKOUT_BASE}}">
+          <article class="plan card">
+            <h3 data-i18n="plan.monthly.name">Monthly</h3>
+            <p class="tagline" data-i18n="plan.monthly.tag">For a busy season or a quick job</p>
+            <p class="price" data-pro="$2.99" data-airshare="$4.99">$2.99 <span data-i18n="plan.monthly.per">/ month</span></p>
+            <p class="price-sub" data-i18n="plan.monthly.sub">Cancel anytime</p>
+            <ul class="checks">
+              <li data-i18n="plan.l.nowm">No watermark</li>
+              <li class="no" data-tier-only="pro" data-i18n="plan.l.share.pro">iPhone, iPad and other Macs: watermarked</li>
+              <li data-tier-only="airshare" hidden data-i18n="plan.l.share.air">AirShare: print from iPhone, iPad and other Macs</li>
+              <li data-i18n="plan.l.macs">1 Mac per key</li>
+              <li data-i18n="plan.l.subupdates">All updates while subscribed</li>
+              <li data-i18n="plan.l.upgrade">Switch to Lifetime any time — unused days count toward it</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="{{CHECKOUT_BASE}}/checkout?plan=monthly" data-checkout data-i18n="plan.monthly.cta">Subscribe monthly</a>
+            <p class="plan-note plan-soon" data-checkout-soon hidden data-i18n="plan.soon">Online checkout opens soon.</p>
+            <p class="plan-note" data-i18n="plan.monthly.note">Renews monthly until you cancel.</p>
+          </article>
+          <article class="plan card plan-featured">
+            <span class="ribbon" data-i18n="plan.yearly.ribbon">Best value</span>
+            <h3 data-i18n="plan.yearly.name">Yearly</h3>
+            <p class="tagline" data-i18n="plan.yearly.tag">For shops that ship every week</p>
+            <p class="price" data-pro="$29.99" data-airshare="$49.99">$29.99 <span data-i18n="plan.yearly.per">/ year</span></p>
+            <p class="price-sub" data-i18n="plan.yearly.sub"><span class="save">Save 16%</span> vs monthly · about <span data-tier-text data-pro="$2.50" data-airshare="$4.17">$2.50</span> / month</p>
+            <ul class="checks">
+              <li data-i18n="plan.l.nowm">No watermark</li>
+              <li class="no" data-tier-only="pro" data-i18n="plan.l.share.pro">iPhone, iPad and other Macs: watermarked</li>
+              <li data-tier-only="airshare" hidden data-i18n="plan.l.share.air">AirShare: print from iPhone, iPad and other Macs</li>
+              <li data-i18n="plan.l.macs">1 Mac per key</li>
+              <li data-i18n="plan.l.subupdates">All updates while subscribed</li>
+              <li data-i18n="plan.l.upgrade">Switch to Lifetime any time — unused days count toward it</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="{{CHECKOUT_BASE}}/checkout?plan=yearly" data-checkout data-i18n="plan.yearly.cta">Subscribe yearly</a>
+            <p class="plan-note plan-soon" data-checkout-soon hidden data-i18n="plan.soon">Online checkout opens soon.</p>
+            <p class="plan-note" data-i18n="plan.yearly.note">Renews yearly until you cancel.</p>
+          </article>
+          <article class="plan card">
+            <h3 data-i18n="plan.lifetime.name">Lifetime</h3>
+            <p class="tagline" data-i18n="plan.lifetime.tag">Pay once, own it</p>
+            <p class="price" data-pro="$59.99" data-airshare="$99.99">$59.99 <span data-i18n="plan.lifetime.per">one-time</span></p>
+            <p class="price-sub" data-i18n="plan.lifetime.sub">No renewals, works offline forever</p>
+            <ul class="checks">
+              <li data-i18n="plan.l.nowm">No watermark</li>
+              <li class="no" data-tier-only="pro" data-i18n="plan.l.share.pro">iPhone, iPad and other Macs: watermarked</li>
+              <li data-tier-only="airshare" hidden data-i18n="plan.l.share.air">AirShare: print from iPhone, iPad and other Macs</li>
+              <li data-i18n="plan.lifetime.l2">1 Mac per key — move it to a new Mac any time</li>
+              <li data-i18n="plan.lifetime.l3">Free updates for all 1.x versions</li>
+              <li data-i18n="plan.lifetime.l4">Licence key delivered instantly</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="{{CHECKOUT_BASE}}/checkout?plan=lifetime" data-checkout data-i18n="plan.lifetime.cta">Buy Lifetime</a>
+            <p class="plan-note plan-soon" data-checkout-soon hidden data-i18n="plan.soon">Online checkout opens soon.</p>
+            <p class="plan-note" data-i18n="plan.lifetime.note">One payment. Nothing renews.</p>
+          </article>
         </div>
-        <div class="badge-item">
-          <strong>Clear</strong>
-          <span>QR + text retention</span>
-        </div>
-      </section>
 
-      <section class="card">
-        <h2>Why this exists / 为什么我们做这个</h2>
-        <div class="copy-grid">
-          <p>
-            Chrome print for labels is often blurry on thermal media. Browser defaults are built for
-            ink/office pages and don’t match Zebra label DPI or page fitting behavior.
-          </p>
-          <p>
-            Chrome 自带打印对热敏纸不友好，默认缩放/DPI 往往导致二维码和文字发虚。我们改由本地助手处理输出，减少模糊。
-          </p>
+        <div class="free-strip card">
+          <span class="free-mascot" aria-hidden="true"><svg class="px-mascot" aria-hidden="true" viewBox="0 0 16 15" width="48" height="45" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="0" width="8" height="1" fill="#ff5e24"/><rect x="4" y="1" width="1" height="1" fill="#ff5e24"/><rect x="5" y="1" width="6" height="1" fill="#ffffff"/><rect x="11" y="1" width="1" height="1" fill="#ff5e24"/><rect x="4" y="2" width="1" height="1" fill="#ff5e24"/><rect x="5" y="2" width="1" height="1" fill="#ffffff"/><rect x="6" y="2" width="1" height="1" fill="#232629"/><rect x="7" y="2" width="1" height="1" fill="#ffffff"/><rect x="8" y="2" width="1" height="1" fill="#232629"/><rect x="9" y="2" width="1" height="1" fill="#ffffff"/><rect x="10" y="2" width="1" height="1" fill="#232629"/><rect x="11" y="2" width="1" height="1" fill="#ff5e24"/><rect x="4" y="3" width="1" height="1" fill="#ff5e24"/><rect x="5" y="3" width="1" height="1" fill="#ffffff"/><rect x="6" y="3" width="1" height="1" fill="#232629"/><rect x="7" y="3" width="1" height="1" fill="#ffffff"/><rect x="8" y="3" width="1" height="1" fill="#232629"/><rect x="9" y="3" width="1" height="1" fill="#ffffff"/><rect x="10" y="3" width="1" height="1" fill="#232629"/><rect x="11" y="3" width="1" height="1" fill="#ff5e24"/><rect x="2" y="4" width="2" height="1" fill="#5c6066"/><rect x="4" y="4" width="8" height="1" fill="#ff5e24"/><rect x="12" y="4" width="2" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#5c6066"/><rect x="2" y="5" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="1" height="1" fill="#5c6066"/><rect x="2" y="6" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="6" width="10" height="1" fill="#5c6066"/><rect x="13" y="6" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="6" width="1" height="1" fill="#5c6066"/><rect x="1" y="7" width="1" height="1" fill="#5c6066"/><rect x="2" y="7" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="7" width="1" height="1" fill="#5c6066"/><rect x="4" y="7" width="1" height="1" fill="#232629"/><rect x="5" y="7" width="1" height="1" fill="#ffffff"/><rect x="6" y="7" width="4" height="1" fill="#5c6066"/><rect x="10" y="7" width="1" height="1" fill="#232629"/><rect x="11" y="7" width="1" height="1" fill="#ffffff"/><rect x="12" y="7" width="1" height="1" fill="#5c6066"/><rect x="13" y="7" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="7" width="1" height="1" fill="#5c6066"/><rect x="1" y="8" width="1" height="1" fill="#5c6066"/><rect x="2" y="8" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="8" width="1" height="1" fill="#5c6066"/><rect x="4" y="8" width="2" height="1" fill="#232629"/><rect x="6" y="8" width="4" height="1" fill="#5c6066"/><rect x="10" y="8" width="2" height="1" fill="#232629"/><rect x="12" y="8" width="1" height="1" fill="#5c6066"/><rect x="13" y="8" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="9" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="9" width="10" height="1" fill="#5c6066"/><rect x="13" y="9" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="9" width="1" height="1" fill="#5c6066"/><rect x="1" y="10" width="1" height="1" fill="#5c6066"/><rect x="2" y="10" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="10" width="1" height="1" fill="#5c6066"/><rect x="1" y="11" width="1" height="1" fill="#5c6066"/><rect x="2" y="11" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="11" width="2" height="1" fill="#989ea4"/><rect x="5" y="11" width="7" height="1" fill="#dfe3e8"/><rect x="12" y="11" width="1" height="1" fill="#ff5e24"/><rect x="13" y="11" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="11" width="1" height="1" fill="#5c6066"/><rect x="1" y="12" width="1" height="1" fill="#5c6066"/><rect x="2" y="12" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="12" width="1" height="1" fill="#5c6066"/><rect x="2" y="13" width="12" height="1" fill="#5c6066"/><rect x="3" y="14" width="2" height="1" fill="#5c6066"/><rect x="11" y="14" width="2" height="1" fill="#5c6066"/></svg></span>
+          <div>
+            <h3 data-i18n="plan.free.name">Free</h3>
+            <p data-i18n="plan.free.body">Every feature, no time limit. A “CrispDock FREE” watermark is printed across the whole label.</p>
+          </div>
+          <a class="btn btn-ghost" href="{{DOWNLOAD_URL}}" data-i18n="plan.free.cta">Download free</a>
         </div>
-      </section>
 
-      <section class="card">
-        <h2>How it works / 工作原理</h2>
-        <ol class="step-list">
-          <li>
-            <span>1</span>
-            <div>
-              <h3>Browser capture / 浏览器读取</h3>
-              <p>Extension picks PDF, page boundaries, and requested label size from Chrome.</p>
-            </div>
-          </li>
-          <li>
-            <span>2</span>
-            <div>
-              <h3>Local conversion / 本地转换</h3>
-              <p>Native helper prepares printer-ready payload with optimized DPI for thermal output.</p>
-            </div>
-          </li>
-          <li>
-            <span>3</span>
-            <div>
-              <h3>Direct queue send / 直接落盘</h3>
-              <p>Converted label data is sent to your Zebra printer queue in CUPS.</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-
-      <section class="card">
-        <h2>3-step setup / 三步快速上手</h2>
-        <ol class="plain-list">
-          <li><strong>Step 1 安装扩展:</strong> 点击安装并固定到 Chrome 工具栏。</li>
-          <li><strong>Step 2 安装 App:</strong> 下载并运行一次本地 App，完成 native host 注册。</li>
-          <li><strong>Step 3 开始打印:</strong> 回到 Chrome，点击 <code>Check Printer</code> → <code>Print Selected PDF</code>。</li>
-        </ol>
-      </section>
-
-      <section class="card" id="files">
-        <div class="section-head">
-          <h2>Download / 下载</h2>
-          <a class="inline-link" href="/#extension-guide">Need setup help?</a>
+        <div class="compare card">
+          <h3 data-i18n="compare.title">Compare plans</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th></th><th data-i18n="plan.free.name">Free</th><th data-i18n="plan.monthly.name">Monthly</th><th data-i18n="plan.yearly.name">Yearly</th><th data-i18n="plan.lifetime.name">Lifetime</th></tr></thead>
+              <tbody>
+                <tr><th scope="row" data-i18n="compare.price.pro">Pro</th><td>$0</td><td data-i18n="compare.price.m">$2.99 / mo</td><td data-i18n="compare.price.y">$29.99 / yr</td><td data-i18n="compare.price.l">$59.99 once</td></tr>
+                <tr><th scope="row" data-i18n="compare.price.air">Pro + AirShare</th><td>—</td><td data-i18n="compare.price.am">$4.99 / mo</td><td data-i18n="compare.price.ay">$49.99 / yr</td><td data-i18n="compare.price.al">$99.99 once</td></tr>
+                <tr><th scope="row" data-i18n="compare.wm">“CrispDock FREE” watermark</th><td class="no" data-i18n="compare.wm.free">On every label</td><td class="yes" data-i18n="compare.none">None</td><td class="yes" data-i18n="compare.none">None</td><td class="yes" data-i18n="compare.none">None</td></tr>
+                <tr><th scope="row" data-i18n="compare.share">Printing from iPhone, iPad, other Macs</th><td class="no" data-i18n="compare.share.free">Watermarked</td><td data-i18n="compare.share.paid">No watermark with AirShare</td><td data-i18n="compare.share.paid">No watermark with AirShare</td><td data-i18n="compare.share.paid">No watermark with AirShare</td></tr>
+                <tr><th scope="row" data-i18n="compare.macs">Macs per key</th><td data-i18n="compare.any">Any</td><td>1</td><td>1</td><td>1</td></tr>
+                <tr><th scope="row" data-i18n="compare.updates">Updates</th><td data-i18n="compare.all">All</td><td data-i18n="compare.while">While subscribed</td><td data-i18n="compare.while">While subscribed</td><td data-i18n="compare.1x">All 1.x</td></tr>
+                <tr><th scope="row" data-i18n="compare.offline">Works offline</th><td class="yes" data-i18n="compare.always">Always</td><td data-i18n="compare.offline.sub">Until 24 h after the paid period</td><td data-i18n="compare.offline.sub">Until 24 h after the paid period</td><td class="yes" data-i18n="compare.always">Always</td></tr>
+                <tr><th scope="row" data-i18n="compare.switch">Switch to Lifetime</th><td>—</td><td data-i18n="compare.switch.sub">Pay the difference</td><td data-i18n="compare.switch.sub">Pay the difference</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="download-grid">
-          <a class="download" data-size="/download/dmg" href="__DMG_URL__" download="__DMG_LABEL__">
-            <span>PrintBridge for Zebra Installer.dmg</span>
-            <small>
-              macOS Installer · <strong>推荐</strong> · Size:
-              <span class="size">Calculating...</span>
-            </small>
-          </a>
-          <a class="download" data-size="/download/zip" href="__ZIP_URL__" download="__ZIP_LABEL__">
-            <span>PrintBridge for Zebra Installer.zip</span>
-            <small>
-              Portable package · Size:
-              <span class="size">Calculating...</span>
-            </small>
-          </a>
-        </div>
-        <p class="small-note">当前版本 <strong>__APP_VERSION__</strong>，支持 macOS 与 Chrome。</p>
-      </section>
 
-      <section class="card" id="extension-guide">
-        <h2>Chrome extension entry / 扩展入口</h2>
+        <p class="account-link" data-account hidden><span data-i18n="account.lead">Already a customer?</span> <a href="{{CHECKOUT_BASE}}/account" data-i18n="account.link">Manage subscription</a></p>
+        <p class="fine pricing-fine" data-i18n="pricing.fine">Prices in US dollars. Sales tax may apply. Subscriptions renew automatically at the price shown until you cancel; cancel anytime from your account and Pro stays on until the end of the period you've paid for. Pro keys need CrispDock 1.3 or later. Payments are processed by Stripe.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="sky" aria-hidden="true"><span class="drift d8"><svg class="px-cloud" aria-hidden="true" viewBox="0 0 14 7" width="56" height="28" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="0" width="4" height="1" fill="#5c6066"/><rect x="3" y="1" width="2" height="1" fill="#5c6066"/><rect x="5" y="1" width="4" height="1" fill="#ffffff"/><rect x="9" y="1" width="1" height="1" fill="#5c6066"/><rect x="2" y="2" width="1" height="1" fill="#5c6066"/><rect x="3" y="2" width="7" height="1" fill="#ffffff"/><rect x="10" y="2" width="2" height="1" fill="#5c6066"/><rect x="1" y="3" width="1" height="1" fill="#5c6066"/><rect x="2" y="3" width="10" height="1" fill="#ffffff"/><rect x="12" y="3" width="1" height="1" fill="#5c6066"/><rect x="0" y="4" width="1" height="1" fill="#5c6066"/><rect x="1" y="4" width="3" height="1" fill="#ffffff"/><rect x="4" y="4" width="1" height="1" fill="#e3f1fe"/><rect x="5" y="4" width="5" height="1" fill="#ffffff"/><rect x="10" y="4" width="1" height="1" fill="#e3f1fe"/><rect x="11" y="4" width="2" height="1" fill="#ffffff"/><rect x="13" y="4" width="1" height="1" fill="#5c6066"/><rect x="0" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#c9e2fa"/><rect x="2" y="5" width="9" height="1" fill="#e3f1fe"/><rect x="11" y="5" width="2" height="1" fill="#c9e2fa"/><rect x="13" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="12" height="1" fill="#5c6066"/></svg></span></div>
+      <div class="container faq">
+        <div class="section-head center">
+          <h2 class="heading" data-i18n="faq.title">Questions</h2>
+        </div>
+        <div class="faq-list">
+          <details class="card"><summary data-i18n="faq.q1">Do I need Zebra's own driver?</summary><p data-i18n="faq.a1">No. CrispDock is the driver. Zebra doesn't publish one for macOS, and the generic one built into macOS is what causes fuzzy, slow labels.</p></details>
+          <details class="card"><summary data-i18n="faq.q2">Which apps and websites can I print from?</summary><p data-i18n="faq.a2">Anything that prints on a Mac: browsers, Preview, PDF apps. Labels from marketplaces, shipping tools and carrier sites all work, whether they come as 4×6 pages or on letter-size sheets.</p></details>
+          <details class="card"><summary data-i18n="faq.q3">What does the free version leave out?</summary><p data-i18n="faq.a3">Nothing — every feature works. Each label just prints with a “CrispDock FREE” watermark repeated across the whole label. Any paid plan removes it.</p></details>
+          <details class="card"><summary data-i18n="faq.q4">How does the licence work?</summary><p data-i18n="faq.a4">Right after payment you get a licence key by email. Paste it into the CrispDock app to activate. Each key works on one Mac; deactivate it in the app (or your account) to move the key to a new Mac.</p></details>
+          <details class="card"><summary data-i18n="faq.q7">Which version of CrispDock do I need?</summary><p data-i18n="faq.a7">Pro keys need CrispDock 1.3 or later — older versions can't activate them. Download the latest version from this page and install it over the old one; your printers and settings stay.</p></details>
+          <details class="card"><summary data-i18n="faq.q8">How do I cancel a subscription?</summary><p data-i18n="faq.a8">Use “Manage subscription” on this page to sign in with your email, then cancel. Nothing is charged after that, and Pro keeps working until the end of the period you've already paid for. The same page lets you change your card and download invoices.</p></details>
+          <details class="card"><summary data-i18n="faq.q9">What happens when a subscription ends?</summary><p data-i18n="faq.a9">When the paid period ends — because you cancelled, or a renewal payment failed and the card wasn't updated within 24 hours — Pro keeps working for 24 more hours. After that, labels print with the free watermark again. Nothing else changes: your key, Macs and settings stay, and renewing turns Pro back on with the same key.</p></details>
+          <details class="card"><summary data-i18n="faq.q10">Can I switch from a subscription to Lifetime?</summary><p data-i18n="faq.a10">Yes, from your account page — you keep the same key and Macs. The unused days left in your current billing period are taken off the Lifetime price ($59.99, or $99.99 with AirShare) and you pay the difference. Periods you've already used aren't credited, and the subscription itself isn't refunded. For example, switching from monthly Pro to Pro Lifetime on the first day costs $57.10.</p></details>
+          <details class="card"><summary data-i18n="faq.q12">What is AirShare?</summary><p data-i18n="faq.a12">CrispDock can share this Mac's Zebra printers on your Wi‑Fi, so iPhones, iPads and other Macs can print to them. With Pro, labels printed that way carry the watermark; Pro + AirShare removes it. Labels you print on the Mac itself have no watermark on either plan. Already on Pro? Add AirShare from your account: subscriptions pay only the difference for the rest of the period, and Pro Lifetime upgrades for $40.</p></details>
+          <details class="card"><summary data-i18n="faq.q11">What is your refund policy?</summary><p data-i18n="faq.a11">If CrispDock isn't right for you, contact us within 30 days of a payment and we'll refund that payment in full. Once a payment is refunded, its licence key stops working right away.</p></details>
+          <details class="card"><summary data-i18n="faq.q5">Are my labels uploaded anywhere?</summary><p data-i18n="faq.a5">No. Every label is converted on your Mac. CrispDock only goes online to activate your licence and to check it now and then — printing works offline. A subscription is renewed in the background whenever the Mac is online; a Mac that stays offline past the end of a paid period plus 24 hours prints with the watermark until it reconnects.</p></details>
+          <details class="card"><summary data-i18n="faq.q6">Will it change my existing printers?</summary><p data-i18n="faq.a6">It switches them to the CrispDock driver but keeps their names, so tools that send raw ZPL to them keep working. Uninstalling restores the built-in driver.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="section cta-band">
+      <div class="sky" aria-hidden="true"><span class="drift d9"><svg class="px-cloud" aria-hidden="true" viewBox="0 0 24 11" width="96" height="44" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="0" width="6" height="1" fill="#5c6066"/><rect x="6" y="1" width="2" height="1" fill="#5c6066"/><rect x="8" y="1" width="6" height="1" fill="#ffffff"/><rect x="14" y="1" width="2" height="1" fill="#5c6066"/><rect x="5" y="2" width="1" height="1" fill="#5c6066"/><rect x="6" y="2" width="10" height="1" fill="#ffffff"/><rect x="16" y="2" width="1" height="1" fill="#5c6066"/><rect x="18" y="2" width="4" height="1" fill="#5c6066"/><rect x="3" y="3" width="2" height="1" fill="#5c6066"/><rect x="5" y="3" width="11" height="1" fill="#ffffff"/><rect x="16" y="3" width="2" height="1" fill="#5c6066"/><rect x="18" y="3" width="4" height="1" fill="#ffffff"/><rect x="22" y="3" width="1" height="1" fill="#5c6066"/><rect x="2" y="4" width="1" height="1" fill="#5c6066"/><rect x="3" y="4" width="20" height="1" fill="#ffffff"/><rect x="23" y="4" width="1" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#5c6066"/><rect x="2" y="5" width="21" height="1" fill="#ffffff"/><rect x="23" y="5" width="1" height="1" fill="#5c6066"/><rect x="0" y="6" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="3" height="1" fill="#ffffff"/><rect x="4" y="6" width="1" height="1" fill="#e3f1fe"/><rect x="5" y="6" width="14" height="1" fill="#ffffff"/><rect x="19" y="6" width="1" height="1" fill="#e3f1fe"/><rect x="20" y="6" width="3" height="1" fill="#ffffff"/><rect x="23" y="6" width="1" height="1" fill="#5c6066"/><rect x="0" y="7" width="1" height="1" fill="#5c6066"/><rect x="1" y="7" width="2" height="1" fill="#ffffff"/><rect x="3" y="7" width="3" height="1" fill="#e3f1fe"/><rect x="6" y="7" width="4" height="1" fill="#ffffff"/><rect x="10" y="7" width="1" height="1" fill="#e3f1fe"/><rect x="11" y="7" width="7" height="1" fill="#ffffff"/><rect x="18" y="7" width="4" height="1" fill="#e3f1fe"/><rect x="22" y="7" width="1" height="1" fill="#ffffff"/><rect x="23" y="7" width="1" height="1" fill="#5c6066"/><rect x="0" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="8" width="1" height="1" fill="#c9e2fa"/><rect x="2" y="8" width="12" height="1" fill="#e3f1fe"/><rect x="14" y="8" width="2" height="1" fill="#c9e2fa"/><rect x="16" y="8" width="6" height="1" fill="#e3f1fe"/><rect x="22" y="8" width="1" height="1" fill="#c9e2fa"/><rect x="23" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="9" width="20" height="1" fill="#c9e2fa"/><rect x="22" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="10" width="20" height="1" fill="#5c6066"/></svg></span><span class="drift d10"><svg class="px-cloud" aria-hidden="true" viewBox="0 0 14 7" width="56" height="28" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="0" width="4" height="1" fill="#5c6066"/><rect x="3" y="1" width="2" height="1" fill="#5c6066"/><rect x="5" y="1" width="4" height="1" fill="#ffffff"/><rect x="9" y="1" width="1" height="1" fill="#5c6066"/><rect x="2" y="2" width="1" height="1" fill="#5c6066"/><rect x="3" y="2" width="7" height="1" fill="#ffffff"/><rect x="10" y="2" width="2" height="1" fill="#5c6066"/><rect x="1" y="3" width="1" height="1" fill="#5c6066"/><rect x="2" y="3" width="10" height="1" fill="#ffffff"/><rect x="12" y="3" width="1" height="1" fill="#5c6066"/><rect x="0" y="4" width="1" height="1" fill="#5c6066"/><rect x="1" y="4" width="3" height="1" fill="#ffffff"/><rect x="4" y="4" width="1" height="1" fill="#e3f1fe"/><rect x="5" y="4" width="5" height="1" fill="#ffffff"/><rect x="10" y="4" width="1" height="1" fill="#e3f1fe"/><rect x="11" y="4" width="2" height="1" fill="#ffffff"/><rect x="13" y="4" width="1" height="1" fill="#5c6066"/><rect x="0" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#c9e2fa"/><rect x="2" y="5" width="9" height="1" fill="#e3f1fe"/><rect x="11" y="5" width="2" height="1" fill="#c9e2fa"/><rect x="13" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="12" height="1" fill="#5c6066"/></svg></span></div>
+      <div class="container hero-stack">
+        <h2 class="display small">
+          <span class="line" data-i18n="cta.title1">Print it sharp.</span>
+          <span class="line accent" data-i18n="cta.title2">Ship it today.</span>
+        </h2>
         <div class="cta-row">
-          <a class="btn btn-secondary" href="__WEBSTORE_URL__" rel="noopener">
-            Open Chrome Web Store
-          </a>
-          <a class="btn btn-secondary" href="/download" rel="noopener">
-            Install app now
+          <a class="btn btn-primary btn-lg" href="{{DOWNLOAD_URL}}">
+            <span data-i18n="hero.download">Download free</span>
+            <span class="btn-meta">v{{VERSION}} · {{DOWNLOAD_SIZE}}</span>
+            <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4"/></svg>
           </a>
         </div>
-        <ol class="plain-list">
-          <li>打开扩展弹窗后先点 <code>Check Printer</code>。</li>
-          <li>如果是本地 file:// PDF，请开启 extension 的“Allow access to file URLs”。</li>
-          <li>选择 “Print Selected PDF” 或 “Print Latest PDF”。</li>
-        </ol>
-      </section>
+      </div>
+    </section>
+  </main>
 
-      <section class="card">
-        <h2>Supported sizes / 支持规格</h2>
-        <ul class="plain-list">
-          <li>4 x 6 in (default)</li>
-          <li>2 x 1 in</li>
-          <li>2.25 x 3.5 in</li>
-          <li>2.5 x 4 in</li>
-          <li>3 x 4 in</li>
-          <li>更多尺寸可在扩展内自定义</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>FAQ / 常见问题</h2>
-        <ul class="faq">
-          <li>
-            <strong>Can it print labels from Chrome preview directly?</strong>  
-            Yes. Open the PDF in Chrome and trigger print in the extension.
-          </li>
-          <li>
-            <strong>是否必须重装本地 App？</strong>  
-            不需要。第一次安装后打开一次即可，后续重启机器通常可直接使用。
-          </li>
-          <li>
-            <strong>是否只支持 Zebra？</strong>  
-            当前优化重点在 Zebra 工作流与常见 macOS 打印队列。其他机型建议先小批量验证。
-          </li>
-        </ul>
-      </section>
-    </main>
-
-    <div id="placeholder-warning" class="placeholder-warning" hidden>
-      Using placeholder extension ID. Replace it after publish by setting PRINTBRIDGE_EXTENSION_ID.
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-mascot" aria-hidden="true"><svg class="px-mascot" aria-hidden="true" viewBox="0 0 16 15" width="48" height="45" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="0" width="8" height="1" fill="#ff5e24"/><rect x="4" y="1" width="1" height="1" fill="#ff5e24"/><rect x="5" y="1" width="6" height="1" fill="#ffffff"/><rect x="11" y="1" width="1" height="1" fill="#ff5e24"/><rect x="4" y="2" width="1" height="1" fill="#ff5e24"/><rect x="5" y="2" width="1" height="1" fill="#ffffff"/><rect x="6" y="2" width="1" height="1" fill="#232629"/><rect x="7" y="2" width="1" height="1" fill="#ffffff"/><rect x="8" y="2" width="1" height="1" fill="#232629"/><rect x="9" y="2" width="1" height="1" fill="#ffffff"/><rect x="10" y="2" width="1" height="1" fill="#232629"/><rect x="11" y="2" width="1" height="1" fill="#ff5e24"/><rect x="4" y="3" width="1" height="1" fill="#ff5e24"/><rect x="5" y="3" width="1" height="1" fill="#ffffff"/><rect x="6" y="3" width="1" height="1" fill="#232629"/><rect x="7" y="3" width="1" height="1" fill="#ffffff"/><rect x="8" y="3" width="1" height="1" fill="#232629"/><rect x="9" y="3" width="1" height="1" fill="#ffffff"/><rect x="10" y="3" width="1" height="1" fill="#232629"/><rect x="11" y="3" width="1" height="1" fill="#ff5e24"/><rect x="2" y="4" width="2" height="1" fill="#5c6066"/><rect x="4" y="4" width="8" height="1" fill="#ff5e24"/><rect x="12" y="4" width="2" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#5c6066"/><rect x="2" y="5" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="1" height="1" fill="#5c6066"/><rect x="2" y="6" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="6" width="10" height="1" fill="#5c6066"/><rect x="13" y="6" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="6" width="1" height="1" fill="#5c6066"/><rect x="1" y="7" width="1" height="1" fill="#5c6066"/><rect x="2" y="7" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="7" width="1" height="1" fill="#5c6066"/><rect x="4" y="7" width="1" height="1" fill="#232629"/><rect x="5" y="7" width="1" height="1" fill="#ffffff"/><rect x="6" y="7" width="4" height="1" fill="#5c6066"/><rect x="10" y="7" width="1" height="1" fill="#232629"/><rect x="11" y="7" width="1" height="1" fill="#ffffff"/><rect x="12" y="7" width="1" height="1" fill="#5c6066"/><rect x="13" y="7" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="7" width="1" height="1" fill="#5c6066"/><rect x="1" y="8" width="1" height="1" fill="#5c6066"/><rect x="2" y="8" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="8" width="1" height="1" fill="#5c6066"/><rect x="4" y="8" width="2" height="1" fill="#232629"/><rect x="6" y="8" width="4" height="1" fill="#5c6066"/><rect x="10" y="8" width="2" height="1" fill="#232629"/><rect x="12" y="8" width="1" height="1" fill="#5c6066"/><rect x="13" y="8" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="9" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="9" width="10" height="1" fill="#5c6066"/><rect x="13" y="9" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="9" width="1" height="1" fill="#5c6066"/><rect x="1" y="10" width="1" height="1" fill="#5c6066"/><rect x="2" y="10" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="10" width="1" height="1" fill="#5c6066"/><rect x="1" y="11" width="1" height="1" fill="#5c6066"/><rect x="2" y="11" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="11" width="2" height="1" fill="#989ea4"/><rect x="5" y="11" width="7" height="1" fill="#dfe3e8"/><rect x="12" y="11" width="1" height="1" fill="#ff5e24"/><rect x="13" y="11" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="11" width="1" height="1" fill="#5c6066"/><rect x="1" y="12" width="1" height="1" fill="#5c6066"/><rect x="2" y="12" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="12" width="1" height="1" fill="#5c6066"/><rect x="2" y="13" width="12" height="1" fill="#5c6066"/><rect x="3" y="14" width="2" height="1" fill="#5c6066"/><rect x="11" y="14" width="2" height="1" fill="#5c6066"/></svg></span>
+        <a class="brand" href="/"><span>CrispDock <small>for Zebra printers</small></span></a>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="{{DOWNLOAD_URL}}" data-i18n="nav.download">Download</a>
+        <a href="/terms" data-i18n="footer.terms">Terms</a>
+        <a href="/privacy" data-i18n="footer.privacy">Privacy</a>
+        <a href="/refunds" data-i18n="footer.refunds">Refunds</a>
+      </nav>
+      <p class="fine" data-i18n="footer.note">CrispDock is not affiliated with or endorsed by Zebra Technologies. Zebra and ZPL are trademarks of their respective owners.</p>
+      <p class="fine" data-support hidden><span data-i18n="footer.support">Support:</span> <a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a></p>
+      <p class="fine">© <span id="year">2026</span> solesolution Inc</p>
     </div>
+  </footer>
 
-    <footer class="footer container">
-      <p>
-        Need help? Contact support: <a href="mailto:support@printbridge.local">support@printbridge.local</a>
-      </p>
-      <p>Build for shipping operations · Made for stable label output.</p>
-    </footer>
-
-    <script src="/script.js"></script>
-  </body>
+  <script>window.PB = { supportEmail: "{{SUPPORT_EMAIL}}" };</script>
+  <script src="/script.js" defer></script>
+</body>
 </html>
