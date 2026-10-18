@@ -200,7 +200,7 @@ p { margin: 0; }
 
 /* ---------- pricing ---------- */
 .plans { display: grid; gap: 16px; align-items: stretch; }
-@media (min-width: 900px) { .plans { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px) { .plans { grid-template-columns: repeat(2, 1fr); max-width: 840px; margin: 0 auto; } }
 .plan { position: relative; padding: 28px; display: flex; flex-direction: column; border-radius: var(--r-card-lg); }
 .plan-featured { border-color: var(--orange); box-shadow: var(--shadow-lift), 0 0 0 1px var(--orange); }
 @media (min-width: 900px) { .plan-featured { transform: translateY(-8px); } }
