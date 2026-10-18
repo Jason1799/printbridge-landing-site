@@ -15,14 +15,14 @@ binding = "ASSETS"
 run_worker_first = true
 
 [vars]
-PRINTBRIDGE_VERSION = "1.3.1"
+PRINTBRIDGE_VERSION = "1.3.2"
 # Lives in public/downloads/. /download always redirects here.
-DOWNLOAD_FILE = "CrispDock-1.3.1.pkg"
+DOWNLOAD_FILE = "CrispDock-1.3.2.pkg"
 DOWNLOAD_SIZE = "7.3 MB"
 # Base URL of the licence server that runs checkout and the customer account, e.g.
 # "https://api.crispdock.com" (no trailing slash needed). Buy buttons go
 # to <CHECKOUT_BASE>/checkout?plan=monthly|yearly|lifetime and "Manage subscription" to
 # <CHECKOUT_BASE>/account. Leave empty until checkout is ready: the buttons then show
 # "Online checkout opens soon" and the account link is hidden.
-CHECKOUT_BASE = ""
+CHECKOUT_BASE = "https://api.crispdock.com"
 SUPPORT_EMAIL = "cs@crispdock.com"
