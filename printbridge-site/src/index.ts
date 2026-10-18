@@ -1,6 +1,7 @@
 // CrispDock — marketing site (Cloudflare Worker + static assets).
-// Serves public/, fills the page's {{…}} placeholders from wrangler vars, and keeps
-// /download pointing at the current installer.
+// Serves public/, fills the page's {{…}} placeholders from wrangler vars, keeps
+// /download pointing at the current installer, and counts page views and downloads per day
+// (traffic_daily in the licence server's D1; no cookies, no IPs, no JavaScript needed).
 
 export interface Env {
   ASSETS: Fetcher;
@@ -15,10 +16,15 @@ export interface Env {
    */
   CHECKOUT_BASE?: string;
   SUPPORT_EMAIL?: string;
+  /**
+   * The licence server's D1 ("printbridge-license"); only traffic_daily is written here
+   * (migrations live in zp505-mac-bridge/license-server/migrations). Missing = nothing counted.
+   */
+  DB?: D1Database;
 }
 
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     const live = url.hostname === "crispdock.com" || url.hostname === "www.crispdock.com";
     // One canonical address: https://crispdock.com (plain http and www both redirect).
@@ -27,7 +33,10 @@ export default {
       url.hostname = "crispdock.com";
       return Response.redirect(url.toString(), 301);
     }
-    return withHeaders(await route(request, env, url), url, live);
+    const response = withHeaders(await route(request, env, url), url, live);
+    const hit = env.DB ? trafficHit(request, url, response) : null;
+    if (hit) ctx.waitUntil(countTraffic(env.DB!, hit));
+    return response;
   },
 };
 
@@ -81,6 +90,89 @@ function withHeaders(response: Response, url: URL, live: boolean): Response {
   }
   return out;
 }
+
+// ---------------------------------------------------------------- funnel counters
+
+interface TrafficHit {
+  kind: "view" | "download";
+  path: string;
+  source: string;
+  campaign: string;
+}
+
+const BOT_UA = /bot|crawl|spider|slurp|preview|monitor|curl|wget|python|headless/i;
+
+/**
+ * What this request adds to traffic_daily, or null. Views: GET of an HTML page (200, or the
+ * 404 page as "(404)" so scanners don't fill the table). Downloads: /download, path = the page
+ * of this site the click came from ("/download" when unknown). Bots, link previews and
+ * browser prefetches aren't counted. Source: utm_source, else (downloads) the src tag that
+ * script.js adds, else the referring site's host ('' = typed in, bookmark or a click on this site).
+ */
+function trafficHit(request: Request, url: URL, response: Response): TrafficHit | null {
+  if (request.method !== "GET") return null;
+  const ua = request.headers.get("User-Agent") ?? "";
+  if (!ua || BOT_UA.test(ua)) return null;
+  const purpose = request.headers.get("Sec-Purpose") ?? request.headers.get("Purpose") ?? "";
+  if (/prefetch|prerender/i.test(purpose)) return null;
+
+  const download = url.pathname === "/download" || url.pathname === "/download/";
+  const referer = referrerOf(request, url);
+  let path: string;
+  if (download) {
+    path = referer?.sameSite ? pagePath(referer.url.pathname) : "/download";
+  } else {
+    if (response.status !== 200 && response.status !== 404) return null;
+    if (!(response.headers.get("Content-Type") ?? "").startsWith("text/html")) return null;
+    path = response.status === 404 ? "(404)" : pagePath(url.pathname);
+  }
+  const campaign = dim(url.searchParams.get("utm_campaign"));
+  let source = dim(url.searchParams.get("utm_source"));
+  if (!source && download) source = dim(url.searchParams.get("src"));
+  if (!source && referer && !referer.sameSite) source = dim(referer.host);
+  return { kind: download ? "download" : "view", path, source, campaign };
+}
+
+/** "/privacy.html", "/privacy/" → "/privacy"; "/index.html" → "/". */
+function pagePath(pathname: string): string {
+  const path = pathname.toLowerCase().replace(/\.html$/, "").replace(/\/index$/, "/").replace(/(.)\/+$/, "$1");
+  return path.slice(0, 80) || "/";
+}
+
+/**
+ * The Referer, its host without "www.", and whether it's this site. api.crispdock.com counts
+ * as another site: its purchase and account pages link to /download.
+ */
+function referrerOf(request: Request, url: URL): { url: URL; host: string; sameSite: boolean } | null {
+  const header = request.headers.get("Referer");
+  if (!header) return null;
+  try {
+    const ref = new URL(header);
+    const host = ref.hostname.toLowerCase().replace(/^www\./, "");
+    return { url: ref, host, sameSite: host === url.hostname.toLowerCase().replace(/^www\./, "") };
+  } catch {
+    return null;
+  }
+}
+
+/** A dimension as stored: trimmed, lower-case, printable, short; '' when empty. */
+function dim(value: string | null): string {
+  return String(value ?? "").trim().toLowerCase().replace(/[^\x21-\x7e]+/g, "_").slice(0, 64);
+}
+
+/** +1 on today's row. Runs after the response (waitUntil); a DB error only gets logged. */
+async function countTraffic(db: D1Database, hit: TrafficHit): Promise<void> {
+  try {
+    await db.prepare(
+      `INSERT INTO traffic_daily (day, kind, path, source, campaign, count) VALUES (?, ?, ?, ?, ?, 1)
+       ON CONFLICT (day, kind, path, source, campaign) DO UPDATE SET count = count + 1`,
+    ).bind(new Date().toISOString().slice(0, 10), hit.kind, hit.path, hit.source, hit.campaign).run();
+  } catch (error) {
+    console.error("traffic: count failed", hit.kind, error);
+  }
+}
+
+// ----------------------------------------------------------------
 
 function downloadPath(env: Env): string {
   return `/downloads/${encodeURIComponent(env.DOWNLOAD_FILE)}`;

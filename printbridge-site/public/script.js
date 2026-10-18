@@ -1,3 +1,38 @@
+// Campaign tags: utm_source / utm_campaign from the landing URL (kept for this tab in
+// sessionStorage; no cookies) ride along on the download and buy links, so downloads and
+// checkouts are counted per channel. Without tags, a visitor who came from another site
+// carries that site's host as src instead. (The Worker counts page views itself, no JS needed.)
+const campaignTags = (() => {
+  const KEY = "cd-campaign";
+  const q = new URLSearchParams(location.search);
+  const clean = (v) => (typeof v === "string" ? v.trim().slice(0, 64) : "");
+  let tags = null;
+  if (clean(q.get("utm_source")) || clean(q.get("utm_campaign"))) {
+    tags = { utm_source: clean(q.get("utm_source")), utm_campaign: clean(q.get("utm_campaign")) };
+  } else {
+    try { tags = JSON.parse(sessionStorage.getItem(KEY) || "null"); } catch {}
+    if (!tags && document.referrer) {
+      try {
+        const host = new URL(document.referrer).hostname.replace(/^www\./, "");
+        if (host && host !== location.hostname.replace(/^www\./, "")) tags = { src: host };
+      } catch {}
+    }
+  }
+  if (tags) { try { sessionStorage.setItem(KEY, JSON.stringify(tags)); } catch {} }
+  const params = new URLSearchParams();
+  if (tags && typeof tags === "object") {
+    ["utm_source", "utm_campaign", "src"].forEach((k) => { if (clean(tags[k])) params.set(k, clean(tags[k])); });
+  }
+  const query = params.toString();
+  if (query) {
+    document.querySelectorAll("a[href]").forEach((a) => {
+      const href = a.getAttribute("href");
+      if (/^\/download\/?$/.test(href)) a.setAttribute("href", href + "?" + query);
+    });
+  }
+  return query;
+})();
+
 // Language switch (English default, 中文 on request or for Chinese browsers) and the
 // buy buttons (disabled until CHECKOUT_BASE points at the licence server).
 (() => {
@@ -70,7 +105,7 @@
     "faq.q6": "会改动我现有的打印机吗？", "faq.a6": "会把它们换成 CrispDock 驱动，但名字不变，所以直接往打印机发 ZPL 指令的工具照常能用。卸载后会还原成系统自带驱动。",
     "footer.note": "CrispDock 与 Zebra Technologies 公司无关，也未获其认可。Zebra 和 ZPL 是各自所有者的商标。",
     "footer.support": "客服：",
-    "footer.terms": "服务条款", "footer.privacy": "隐私政策", "footer.refunds": "退款政策",
+    "footer.guides": "机型和教程", "footer.terms": "服务条款", "footer.privacy": "隐私政策", "footer.refunds": "退款政策",
     "ba.before": "macOS 自带驱动", "ba.after": "CrispDock", "ba.label": "前后对比",
     "ba.caption": "真实照片局部放大：左边是 macOS 自带驱动打的 USPS 面单，右边是 CrispDock 打的。左右拖动中间的竖线对比。",
   };
@@ -97,7 +132,8 @@
   };
 
   // Pro / Pro + AirShare switch on the pricing cards: prices, the AirShare line and the
-  // checkout links (…/checkout?plan=…&tier=airshare) follow the chosen tier.
+  // checkout links (…/checkout?plan=…&tier=airshare) follow the chosen tier. The links are
+  // rebuilt from their original href each time, with the campaign tags added back.
   let tier = "pro";
   const showTier = (next) => {
     tier = next;
@@ -109,10 +145,13 @@
     document.querySelectorAll("[data-tier-text]").forEach((n) => { n.textContent = n.dataset[tier]; });
     document.querySelectorAll("a[data-checkout]").forEach((a) => {
       if (!a.dataset.baseHref) a.dataset.baseHref = a.getAttribute("href") || "";
-      if (a.dataset.baseHref && a.hasAttribute("href")) a.setAttribute("href", a.dataset.baseHref + (tier === "airshare" ? "&tier=airshare" : ""));
+      if (a.dataset.baseHref && a.hasAttribute("href")) {
+        a.setAttribute("href", a.dataset.baseHref + (tier === "airshare" ? "&tier=airshare" : "") + (campaignTags ? "&" + campaignTags : ""));
+      }
     });
   };
   document.querySelectorAll(".tier-switch [data-tier]").forEach((b) => b.addEventListener("click", () => showTier(b.dataset.tier)));
+  showTier(tier); // puts the campaign tags on the buy links right away
 
   let lang = "en";
   const fromUrl = new URLSearchParams(location.search).get("lang");

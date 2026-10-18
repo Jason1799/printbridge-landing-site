@@ -14,6 +14,13 @@ directory = "./public"
 binding = "ASSETS"
 run_worker_first = true
 
+# The licence server's D1 (zp505-mac-bridge/license-server, which owns the schema and its
+# migrations). This Worker only adds to traffic_daily: page views and /download clicks per day.
+[[d1_databases]]
+binding = "DB"
+database_name = "printbridge-license"
+database_id = "a433c056-e283-4d35-a5ec-da916d6572a2"
+
 [vars]
 PRINTBRIDGE_VERSION = "1.3.2"
 # Lives in public/downloads/. /download always redirects here.

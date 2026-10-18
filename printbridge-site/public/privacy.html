@@ -12,8 +12,8 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/jersey10-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/fonts.css?v=20261018" />
-  <link rel="stylesheet" href="/styles.css?v=20261018" />
+  <link rel="stylesheet" href="/fonts.css?v=20261019" />
+  <link rel="stylesheet" href="/styles.css?v=20261019" />
 </head>
 <body>
   <header class="nav">
@@ -38,11 +38,12 @@
       <h2>What we collect</h2>
       <ul>
         <li><strong>Email address</strong> — when you buy a licence or sign in to your account. We use it to send your licence key, sign-in links and receipts, and to answer support requests.</li>
-        <li><strong>Purchase records</strong> — plan, amounts, dates, and the Stripe customer, subscription and payment IDs. Card details are handled by Stripe; we only ever see the last four digits.</li>
+        <li><strong>Purchase records</strong> — plan, amounts, dates, and the Stripe customer, subscription and payment IDs. Card details are handled by Stripe; we only ever see the last four digits. The campaign tag or referring site you arrived through (see “Anonymous counts”) is kept with the purchase.</li>
         <li><strong>Activated Macs</strong> — when you activate a licence: a one-way hash of the Mac’s hardware ID (never the ID itself), the Mac’s name, the CrispDock version, and when it was activated and last checked in. This enforces the one-Mac-per-key limit and lets you see and remove Macs in your account.</li>
+        <li><strong>Anonymous counts</strong> — the website counts visits and downloads per day, and the app’s update checks are counted per day, to see which pages and links bring people in. A count only records the page, the referring site or campaign tag (such as <code>utm_source</code>) and, for update checks, the CrispDock version — no cookies, no IP addresses, nothing that identifies you or your Mac.</li>
         <li><strong>Sign-in security</strong> — when you request a sign-in link we keep a keyed hash of your IP address to limit abuse, and we keep your browser’s user-agent with your sign-in session so you can recognise it.</li>
       </ul>
-      <p>The account page uses one cookie to keep you signed in. The website remembers your language choice in your browser and doesn’t use analytics or advertising trackers.</p>
+      <p>The account page uses one cookie to keep you signed in. The website remembers your language choice in your browser, and the campaign tag of the link you arrived through for as long as the tab is open; it doesn’t use cookies, third-party analytics or advertising trackers.</p>
 
       <h2>Who processes data for us</h2>
       <ul>
