@@ -102,9 +102,12 @@ p { margin: 0; }
 .nav-links a { font: 500 14px/1 var(--font-body); color: var(--ink); text-decoration: none; padding: 9px 12px; border-radius: var(--r-btn); }
 .nav-links a:hover { color: var(--orange); text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 4px; }
 .nav-actions { display: flex; align-items: center; gap: 8px; }
-.lang { background: none; border: 0; color: var(--slate); font: 500 14px var(--font-body); padding: 8px 10px; border-radius: var(--r-btn); cursor: pointer; }
+.lang { background: none; border: 0; color: var(--slate); font: 500 14px var(--font-body); padding: 8px 10px; border-radius: var(--r-btn); cursor: pointer; white-space: nowrap; }
+@media (max-width: 400px) { .nav-actions { gap: 2px; } .lang { padding: 8px 6px; } }
 .lang:hover { color: var(--orange); }
 @media (min-width: 880px) { .nav-links { display: flex; } }
+.nav-mini { font: 500 14px var(--font-body); color: var(--ink); text-decoration: none; padding: 8px 6px; }
+@media (min-width: 880px) { .nav-mini { display: none; } }
 @media (max-width: 420px) { .brand small { display: none; } }
 
 /* ---------- pixel sprites & sky ---------- */
@@ -134,6 +137,8 @@ p { margin: 0; }
 .eyebrow { font: 600 14px/1.4 var(--font-body); color: var(--slate); background: var(--paper); border-radius: 999px; padding: 6px 14px; margin-bottom: 28px; box-shadow: var(--shadow-card); }
 .lead { max-width: 580px; margin: 28px auto 32px; font-size: 18px; line-height: 1.56; color: var(--slate); }
 .cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.hero-trial { margin-top: 14px; font-size: 15px; color: var(--slate); }
+.hero-trial a { color: var(--orange-press); font-weight: 600; text-underline-offset: 3px; }
 .facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; list-style: none; padding: 0; margin: 24px 0 0; color: var(--slate); font-size: 14px; }
 .facts li::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; background: var(--orange); vertical-align: 1px; }
 @media (min-width: 960px) { .hero { padding: 104px 0 48px; } }
@@ -275,7 +280,8 @@ p { margin: 0; }
 .footer .brand small { color: var(--cream); }
 .footer-mascot .px-mascot { width: 42px; height: auto; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 6px 0 8px; }
-.footer-links a { color: #fff; text-decoration: none; font: 500 14px var(--font-body); }
+.footer-links a { color: #fff; text-decoration: none; font: 500 14px var(--font-body); display: inline-block; padding: 6px 0; }
+.footer .fine a { display: inline-block; padding: 4px 0; }
 .footer-links a:hover { text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 4px; }
 .footer .fine { color: var(--cream); opacity: .85; }
 .footer .fine a { color: #fff; }
@@ -327,3 +333,11 @@ p { margin: 0; }
 .legal ul { margin: 12px 0; padding-left: 22px; }
 .legal li + li { margin-top: 8px; }
 .legal a { color: var(--orange-press); text-underline-offset: 3px; }
+
+/* <picture> wrappers (WebP with PNG/JPEG fallback) don’t add a box of their own. */
+picture { display: contents; }
+
+/* Buttons inside legal-style pages (e.g. 404) keep their own colours. */
+.legal a.btn { text-decoration: none; }
+.legal a.btn-primary { color: #fff; }
+.legal a.btn-ghost { color: var(--ink); }

@@ -6,16 +6,28 @@
   <meta name="color-scheme" content="light" />
   <title>CrispDock — crisp Zebra labels from any Mac app</title>
   <meta name="description" content="A macOS printer driver for Zebra ZPL label printers. Sharp barcodes, no stutter, and shipping labels on letter sheets cut out and rotated to 4x6 automatically." />
-  <meta property="og:title" content="CrispDock" />
-  <meta property="og:description" content="Crisp Zebra labels from any Mac app." />
-  <meta property="og:image" content="/assets/sheet-label-4x6.png" />
+  <link rel="canonical" href="https://crispdock.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CrispDock" />
+  <meta property="og:url" content="https://crispdock.com/" />
+  <meta property="og:title" content="CrispDock — crisp Zebra labels from any Mac app" />
+  <meta property="og:description" content="A macOS driver for Zebra ZPL label printers. Free to download; Pro is free for 7 days." />
+  <meta property="og:image" content="https://crispdock.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="CrispDock: crisp Zebra labels from any Mac app, next to a sharp 4×6 shipping label" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CrispDock — crisp Zebra labels from any Mac app" />
+  <meta name="twitter:description" content="A macOS driver for Zebra ZPL label printers. Free to download; Pro is free for 7 days." />
+  <meta name="twitter:image" content="https://crispdock.com/assets/og-image.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CrispDock for Zebra printers", "url": "https://crispdock.com/", "applicationCategory": "BusinessApplication", "operatingSystem": "macOS 13 or later", "description": "A macOS printer driver for Zebra ZPL label printers: sharp barcodes, no stutter, and shipping labels on letter sheets cut out and rotated to 4×6.", "image": "https://crispdock.com/assets/og-image.png", "publisher": {"@type": "Organization", "name": "solesolution Inc", "url": "https://crispdock.com/", "email": "cs@crispdock.com"}, "offers": [{"@type": "Offer", "name": "Free (with watermark)", "price": "0", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Pro — yearly (7-day free trial)", "price": "29.99", "priceCurrency": "USD", "url": "https://crispdock.com/#pricing"}, {"@type": "Offer", "name": "Pro — lifetime", "price": "79.00", "priceCurrency": "USD", "url": "https://crispdock.com/#pricing"}, {"@type": "Offer", "name": "Pro + AirShare — yearly (7-day free trial)", "price": "49.99", "priceCurrency": "USD", "url": "https://crispdock.com/#pricing"}, {"@type": "Offer", "name": "Pro + AirShare — lifetime", "price": "119.00", "priceCurrency": "USD", "url": "https://crispdock.com/#pricing"}]}</script>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/icon-128.png" type="image/png" sizes="128x128" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Manrope:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/jersey10-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/fonts.css?v=20261018" />
+  <link rel="stylesheet" href="/styles.css?v=20261018" />
 </head>
 <body>
   <header class="nav">
@@ -28,6 +40,7 @@
         <a href="#faq" data-i18n="nav.faq">FAQ</a>
       </nav>
       <div class="nav-actions">
+        <a class="nav-mini" href="#pricing" data-i18n="nav.pricing">Pricing</a>
         <button class="lang" type="button" id="lang-toggle" aria-label="Switch language">中文</button>
         <a class="btn btn-small btn-primary" href="{{DOWNLOAD_URL}}"><span data-i18n="nav.download">Download</span></a>
       </div>
@@ -57,6 +70,7 @@
           </a>
           <a class="btn btn-ghost btn-lg" href="#pricing" data-i18n="hero.pricing">See pricing</a>
         </div>
+        <p class="hero-trial" data-i18n="hero.trial">Free forever with a watermark — or <a href="#pricing">try Pro free for 7 days</a>.</p>
         <ul class="facts">
           <li data-i18n="hero.fact1">macOS 13 or later</li>
           <li data-i18n="hero.fact2">Apple silicon &amp; Intel</li>
@@ -66,7 +80,7 @@
 
       <div class="container">
         <figure class="transform card" aria-label="A letter sheet becomes a 4×6 label">
-          <div class="paper paper-sheet"><img src="/assets/sheet-letter.png" alt="Two shipping labels printed side by side on a letter-size sheet, with a note below" width="386" height="500" /></div>
+          <div class="paper paper-sheet"><picture><source srcset="/assets/sheet-letter.webp" type="image/webp" /><img src="/assets/sheet-letter.png" alt="Two shipping labels printed side by side on a letter-size sheet, with a note below" width="386" height="500" /></picture></div>
           <div class="transform-mid" aria-hidden="true">
             <span class="mascot-wrap"><svg class="px-mascot" aria-hidden="true" viewBox="0 0 16 15" width="80" height="75" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="0" width="8" height="1" fill="#ff5e24"/><rect x="4" y="1" width="1" height="1" fill="#ff5e24"/><rect x="5" y="1" width="6" height="1" fill="#ffffff"/><rect x="11" y="1" width="1" height="1" fill="#ff5e24"/><rect x="4" y="2" width="1" height="1" fill="#ff5e24"/><rect x="5" y="2" width="1" height="1" fill="#ffffff"/><rect x="6" y="2" width="1" height="1" fill="#232629"/><rect x="7" y="2" width="1" height="1" fill="#ffffff"/><rect x="8" y="2" width="1" height="1" fill="#232629"/><rect x="9" y="2" width="1" height="1" fill="#ffffff"/><rect x="10" y="2" width="1" height="1" fill="#232629"/><rect x="11" y="2" width="1" height="1" fill="#ff5e24"/><rect x="4" y="3" width="1" height="1" fill="#ff5e24"/><rect x="5" y="3" width="1" height="1" fill="#ffffff"/><rect x="6" y="3" width="1" height="1" fill="#232629"/><rect x="7" y="3" width="1" height="1" fill="#ffffff"/><rect x="8" y="3" width="1" height="1" fill="#232629"/><rect x="9" y="3" width="1" height="1" fill="#ffffff"/><rect x="10" y="3" width="1" height="1" fill="#232629"/><rect x="11" y="3" width="1" height="1" fill="#ff5e24"/><rect x="2" y="4" width="2" height="1" fill="#5c6066"/><rect x="4" y="4" width="8" height="1" fill="#ff5e24"/><rect x="12" y="4" width="2" height="1" fill="#5c6066"/><rect x="1" y="5" width="1" height="1" fill="#5c6066"/><rect x="2" y="5" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="5" width="1" height="1" fill="#5c6066"/><rect x="1" y="6" width="1" height="1" fill="#5c6066"/><rect x="2" y="6" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="6" width="10" height="1" fill="#5c6066"/><rect x="13" y="6" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="6" width="1" height="1" fill="#5c6066"/><rect x="1" y="7" width="1" height="1" fill="#5c6066"/><rect x="2" y="7" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="7" width="1" height="1" fill="#5c6066"/><rect x="4" y="7" width="1" height="1" fill="#232629"/><rect x="5" y="7" width="1" height="1" fill="#ffffff"/><rect x="6" y="7" width="4" height="1" fill="#5c6066"/><rect x="10" y="7" width="1" height="1" fill="#232629"/><rect x="11" y="7" width="1" height="1" fill="#ffffff"/><rect x="12" y="7" width="1" height="1" fill="#5c6066"/><rect x="13" y="7" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="7" width="1" height="1" fill="#5c6066"/><rect x="1" y="8" width="1" height="1" fill="#5c6066"/><rect x="2" y="8" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="8" width="1" height="1" fill="#5c6066"/><rect x="4" y="8" width="2" height="1" fill="#232629"/><rect x="6" y="8" width="4" height="1" fill="#5c6066"/><rect x="10" y="8" width="2" height="1" fill="#232629"/><rect x="12" y="8" width="1" height="1" fill="#5c6066"/><rect x="13" y="8" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="8" width="1" height="1" fill="#5c6066"/><rect x="1" y="9" width="1" height="1" fill="#5c6066"/><rect x="2" y="9" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="9" width="10" height="1" fill="#5c6066"/><rect x="13" y="9" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="9" width="1" height="1" fill="#5c6066"/><rect x="1" y="10" width="1" height="1" fill="#5c6066"/><rect x="2" y="10" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="10" width="1" height="1" fill="#5c6066"/><rect x="1" y="11" width="1" height="1" fill="#5c6066"/><rect x="2" y="11" width="1" height="1" fill="#dfe3e8"/><rect x="3" y="11" width="2" height="1" fill="#989ea4"/><rect x="5" y="11" width="7" height="1" fill="#dfe3e8"/><rect x="12" y="11" width="1" height="1" fill="#ff5e24"/><rect x="13" y="11" width="1" height="1" fill="#dfe3e8"/><rect x="14" y="11" width="1" height="1" fill="#5c6066"/><rect x="1" y="12" width="1" height="1" fill="#5c6066"/><rect x="2" y="12" width="12" height="1" fill="#dfe3e8"/><rect x="14" y="12" width="1" height="1" fill="#5c6066"/><rect x="2" y="13" width="12" height="1" fill="#5c6066"/><rect x="3" y="14" width="2" height="1" fill="#5c6066"/><rect x="11" y="14" width="2" height="1" fill="#5c6066"/></svg></span>
             <svg class="arrow-px" viewBox="0 0 14 7" shape-rendering="crispEdges"><path fill="#ff5e24" d="M0 3h10v1H0zM8 1h1v1H8zM9 2h1v1H9zM10 3h1v1h-1zM9 4h1v1H9zM8 5h1v1H8zM11 3h1v1h-1z"/></svg>
@@ -88,8 +102,8 @@
         <figure class="ba card">
           <div class="ba-stage">
           <div class="ba-frame" id="ba" role="slider" tabindex="0" aria-label="Before and after" data-i18n-label="ba.label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--pos: 50%">
-            <img class="ba-img" src="/assets/compare-after.jpg" alt="Printed with CrispDock: sharp letters and clean, straight barcode bars" width="1600" height="692" loading="lazy" draggable="false" />
-            <img class="ba-img ba-before" src="/assets/compare-before.jpg" alt="Printed with the built-in macOS driver: jagged letters and fuzzy, ragged barcode bars" width="1600" height="692" loading="lazy" draggable="false" />
+            <picture><source srcset="/assets/compare-after.webp" type="image/webp" /><img class="ba-img" src="/assets/compare-after.jpg" alt="Printed with CrispDock: sharp letters and clean, straight barcode bars" width="1600" height="692" loading="lazy" draggable="false" /></picture>
+            <picture><source srcset="/assets/compare-before.webp" type="image/webp" /><img class="ba-img ba-before" src="/assets/compare-before.jpg" alt="Printed with the built-in macOS driver: jagged letters and fuzzy, ragged barcode bars" width="1600" height="692" loading="lazy" draggable="false" /></picture>
             <span class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 13 7" width="26" height="14" shape-rendering="crispEdges"><path fill="#fff" d="M3 0h1v1H3zM2 1h1v1H2zM1 2h1v1H1zM0 3h5v1H0zM1 4h1v1H1zM2 5h1v1H2zM3 6h1v1H3zM9 0h1v1H9zM10 1h1v1h-1zM11 2h1v1h-1zM8 3h5v1H8zM11 4h1v1h-1zM10 5h1v1h-1zM9 6h1v1H9z"/></svg></span></span>
           </div>
           <div class="ba-tags" aria-hidden="true">
@@ -119,7 +133,7 @@
           <p class="section-lead" data-i18n="preview.lead">The CrispDock app shows the exact output of the driver — one tile per label. A sheet with two shipping labels becomes two upright 4×6 labels.</p>
         </div>
         <div class="app-window">
-          <img class="screenshot" src="/assets/app-preview.png" alt="The CrispDock app previewing two labels cut from one letter sheet" width="1372" height="873" loading="lazy" />
+          <picture><source srcset="/assets/app-preview.webp" type="image/webp" /><img class="screenshot" src="/assets/app-preview.png" alt="The CrispDock app previewing two labels cut from one letter sheet" width="1372" height="873" loading="lazy" /></picture>
         </div>
         <ul class="pills">
           <li><span class="pill-dot"></span><span data-i18n="preview.c1">Set up printers in one click</span></li>
@@ -253,7 +267,7 @@
           <details class="card"><summary data-i18n="faq.q2">Which apps and websites can I print from?</summary><p data-i18n="faq.a2">Anything that prints on a Mac: browsers, Preview, PDF apps. Labels from marketplaces, shipping tools and carrier sites all work, whether they come as 4×6 pages or on letter-size sheets.</p></details>
           <details class="card"><summary data-i18n="faq.q3">What does the free version leave out?</summary><p data-i18n="faq.a3">Nothing — every feature works. Each label just prints with a “CrispDock FREE” watermark repeated across the whole label, for as long as you like. A plan removes it — and the yearly plan starts with 7 days free, so you can try it without the watermark first.</p></details>
           <details class="card"><summary data-i18n="faq.q4">How does the licence work?</summary><p data-i18n="faq.a4">Right after checkout — including when a free trial starts — you get a licence key by email. Paste it into the CrispDock app to activate. Each key works on one Mac; deactivate it in the app (or your account) to move the key to a new Mac. The free trial is once per Mac.</p></details>
-          <details class="card"><summary data-i18n="faq.q7">Which version of CrispDock do I need?</summary><p data-i18n="faq.a7">Pro keys need CrispDock 1.3 or later — older versions can't activate them. Download the latest version from this page and install it over the old one; your printers and settings stay.</p></details>
+          <details class="card"><summary data-i18n="faq.q7">Which version of CrispDock do I need?</summary><p data-i18n="faq.a7">Pro keys need CrispDock 1.3 or later — older versions can't activate them — and 1.3.2 or newer explains clearly when a key can't be activated. Download the latest version from this page and install it over the old one; your printers and settings stay.</p></details>
           <details class="card"><summary data-i18n="faq.q13">How does the 7-day free trial work?</summary><p data-i18n="faq.a13">The yearly plan starts with 7 days free for new customers, with no watermark. You enter a card at checkout, but nothing is charged until the trial ends — the date is in your licence email and on your account page. Cancel from your account before then and you pay nothing; otherwise the yearly price is charged and the plan renews each year. Lifetime has no trial, but the free version lets you try everything with the watermark first.</p></details>
           <details class="card"><summary data-i18n="faq.q8">How do I cancel a subscription?</summary><p data-i18n="faq.a8">Use “Manage subscription” on this page to sign in with your email, then cancel. Nothing is charged after that, and Pro keeps working until the end of the period you've already paid for. The same page lets you change your card and download invoices.</p></details>
           <details class="card"><summary data-i18n="faq.q9">What happens when a subscription ends?</summary><p data-i18n="faq.a9">When the paid period ends — because you cancelled, or a renewal payment failed and the card wasn't updated within 24 hours — Pro keeps working for 24 more hours. After that, labels print with the free watermark again. Nothing else changes: your key, Macs and settings stay, and renewing turns Pro back on with the same key.</p></details>
@@ -307,6 +321,6 @@
   </footer>
 
   <script>window.PB = { supportEmail: "{{SUPPORT_EMAIL}}" };</script>
-  <script src="/script.js" defer></script>
+  <script src="/script.js?v=20261018" defer></script>
 </body>
 </html>
