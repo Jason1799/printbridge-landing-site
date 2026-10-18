@@ -203,7 +203,13 @@ p { margin: 0; }
 @media (min-width: 900px) { .plans { grid-template-columns: repeat(2, 1fr); max-width: 840px; margin: 0 auto; } }
 .plan { position: relative; padding: 28px; display: flex; flex-direction: column; border-radius: var(--r-card-lg); }
 .plan-featured { border-color: var(--orange); box-shadow: var(--shadow-lift), 0 0 0 1px var(--orange); }
-@media (min-width: 900px) { .plan-featured { transform: translateY(-8px); } }
+/* Side by side, the cards share one set of rows (subgrid) so titles, prices, lists, buttons and
+   notes line up across both cards whatever their text length. */
+@media (min-width: 900px) {
+  .plans { grid-template-rows: repeat(8, auto); }
+  .plan { display: grid; grid-row: span 8; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
+  .plan > .btn { align-self: start; }
+}
 .ribbon { position: absolute; top: -13px; left: 24px; background: var(--orange); color: #fff; font: 700 12px/1 var(--font-body); letter-spacing: .04em; text-transform: uppercase; padding: 7px 10px; border-radius: var(--r-btn); }
 .tagline { color: var(--slate); font-size: 14px; margin-top: 4px; }
 .price { font: 400 64px/0.9 var(--font-pixel); letter-spacing: -0.02em; color: var(--ink-strong); margin-top: 18px; }
