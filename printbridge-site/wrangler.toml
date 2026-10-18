@@ -25,4 +25,4 @@ DOWNLOAD_SIZE = "7.3 MB"
 # <CHECKOUT_BASE>/account. Leave empty until checkout is ready: the buttons then show
 # "Online checkout opens soon" and the account link is hidden.
 CHECKOUT_BASE = ""
-SUPPORT_EMAIL = "support@crispdock.com"
+SUPPORT_EMAIL = "cs@crispdock.com"
