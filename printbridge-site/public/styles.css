@@ -107,6 +107,14 @@ p { margin: 0; }
 .lang:hover { color: var(--orange); }
 @media (min-width: 880px) { .nav-links { display: flex; } }
 .nav-mini { font: 500 14px var(--font-body); color: var(--ink); text-decoration: none; padding: 8px 6px; }
+.nav-signin { display: inline-flex; align-items: center; gap: 6px; font: 500 14px/1 var(--font-body); color: var(--ink); text-decoration: none; padding: 9px 10px; border-radius: var(--r-btn); white-space: nowrap; }
+.nav-signin:hover { color: var(--orange); }
+.nav-signin-icon { flex: none; }
+/* Phones: no room for Pricing next to Sign in — the hero's "See pricing" button is right below. */
+@media (max-width: 480px) { .nav-mini, .nav-actions .btn-ghost { display: none; } }
+@media (max-width: 360px) { .nav-inner { gap: 8px; } .nav-actions .btn-small { padding: 6px 10px; } .lang { padding: 8px 4px; } }
+/* Phones: icon only (the text stays for screen readers). */
+@media (max-width: 520px) { .nav-signin { padding: 8px 6px; } .nav-signin span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } }
 @media (min-width: 880px) { .nav-mini { display: none; } }
 @media (max-width: 420px) { .brand small { display: none; } }
 

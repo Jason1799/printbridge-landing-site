@@ -27,7 +27,7 @@
   <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/jersey10-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/fonts.css?v=20261019" />
-  <link rel="stylesheet" href="/styles.css?v=20261019" />
+  <link rel="stylesheet" href="/styles.css?v=20261019b" />
 </head>
 <body>
   <header class="nav">
@@ -42,6 +42,7 @@
       <div class="nav-actions">
         <a class="nav-mini" href="#pricing" data-i18n="nav.pricing">Pricing</a>
         <button class="lang" type="button" id="lang-toggle" aria-label="Switch language">中文</button>
+        <a class="nav-signin" href="{{CHECKOUT_BASE}}/account" data-account-link><svg class="nav-signin-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" shape-rendering="crispEdges"><path fill="currentColor" d="M6 2h4v1h1v4h-1v1H6V7H5V3h1zM5 9h6v1h1v1h1v3H3v-3h1v-1h1z"/></svg><span data-i18n="nav.signin">Sign in</span></a>
         <a class="btn btn-small btn-primary" href="{{DOWNLOAD_URL}}"><span data-i18n="nav.download">Download</span></a>
       </div>
     </div>
@@ -310,6 +311,7 @@
         <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
         <a href="#faq" data-i18n="nav.faq">FAQ</a>
         <a href="{{DOWNLOAD_URL}}" data-i18n="nav.download">Download</a>
+        <a href="{{CHECKOUT_BASE}}/account" data-account-link data-i18n="footer.account">Account</a>
         <a href="/guides" data-i18n="footer.guides">Printers &amp; guides</a>
         <a href="/terms" data-i18n="footer.terms">Terms</a>
         <a href="/privacy" data-i18n="footer.privacy">Privacy</a>
@@ -322,6 +324,6 @@
   </footer>
 
   <script>window.PB = { supportEmail: "{{SUPPORT_EMAIL}}" };</script>
-  <script src="/script.js?v=20261019" defer></script>
+  <script src="/script.js?v=20261019b" defer></script>
 </body>
 </html>

@@ -37,7 +37,7 @@ const campaignTags = (() => {
 // buy buttons (disabled until CHECKOUT_BASE points at the licence server).
 (() => {
   const zh = {
-    "nav.features": "功能", "nav.how": "使用方法", "nav.pricing": "价格", "nav.faq": "常见问题", "nav.download": "下载",
+    "nav.features": "功能", "nav.how": "使用方法", "nav.pricing": "价格", "nav.faq": "常见问题", "nav.download": "下载", "nav.signin": "登录",
     "hero.eyebrow": "Mac 上的 Zebra ZPL 标签打印机驱动",
     "hero.title1": "任何 Mac 软件，", "hero.title2": "都能打出清晰的 Zebra 标签。", "cta.title1": "打得清晰，", "cta.title2": "今天就发货。",
     "hero.lead": "CrispDock 取代 macOS 自带的模糊驱动：条码清晰，打印不再一顿一顿；印在 Letter 大纸上的面单，会自动抠出来、转正，铺满 4×6。",
@@ -105,7 +105,7 @@ const campaignTags = (() => {
     "faq.q6": "会改动我现有的打印机吗？", "faq.a6": "会把它们换成 CrispDock 驱动，但名字不变，所以直接往打印机发 ZPL 指令的工具照常能用。卸载后会还原成系统自带驱动。",
     "footer.note": "CrispDock 与 Zebra Technologies 公司无关，也未获其认可。Zebra 和 ZPL 是各自所有者的商标。",
     "footer.support": "客服：",
-    "footer.guides": "机型和教程", "footer.terms": "服务条款", "footer.privacy": "隐私政策", "footer.refunds": "退款政策",
+    "footer.guides": "机型和教程", "footer.terms": "服务条款", "footer.privacy": "隐私政策", "footer.refunds": "退款政策", "footer.account": "我的账户",
     "ba.before": "macOS 自带驱动", "ba.after": "CrispDock", "ba.label": "前后对比",
     "ba.caption": "真实照片局部放大：左边是 macOS 自带驱动打的 USPS 面单，右边是 CrispDock 打的。左右拖动中间的竖线对比。",
   };

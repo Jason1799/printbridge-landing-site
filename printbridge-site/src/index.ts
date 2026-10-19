@@ -62,7 +62,9 @@ async function route(request: Request, env: Env, url: URL): Promise<Response> {
       // No checkout yet: render the "opens soon" state here too, so it holds without JS.
       html = html
         .replace(/ href="\/checkout\?plan=[a-z]+"( data-checkout)/g, ' aria-disabled="true"$1')
-        .replaceAll(" data-checkout-soon hidden", " data-checkout-soon");
+        .replaceAll(" data-checkout-soon hidden", " data-checkout-soon")
+        // …and no account to sign in to: drop the "Sign in" / "Account" links.
+        .replace(/\s*<a [^>]*data-account-link[^>]*>[\s\S]*?<\/a>/g, "");
     }
     return new Response(html, {
       headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=60" },
